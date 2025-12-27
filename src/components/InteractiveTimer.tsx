@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Play, Square, Timer } from "@phosphor-icons/react";
 import { cn } from "../lib/utils";
 
@@ -8,7 +8,7 @@ export function InteractiveTimer() {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: any;
     if (isRunning) {
       interval = setInterval(() => {
         setSeconds((s) => s + 1);

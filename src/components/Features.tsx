@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
-import { ChartBar, DownloadSimple, UsersThree, DeviceMobile, Clock, CursorClick } from "@phosphor-icons/react";
+import { ChartBar, UsersThree, DeviceMobile, CursorClick } from "@phosphor-icons/react";
 
 const content = [
   {

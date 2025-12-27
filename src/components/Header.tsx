@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { List, X } from "@phosphor-icons/react";
 import { Logo } from "./Logo";
 import { cn } from "../lib/utils";

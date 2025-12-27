@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import { useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
@@ -15,7 +15,7 @@ export const StickyScroll = ({
   }[];
   contentClassName?: string;
 }) => {
-  const [activeCard, setActiveCard] = React.useState(0);
+  const [activeCard, setActiveCard] = useState(0);
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
     // container: ref,
@@ -38,11 +38,6 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  const backgroundColors = [
-    "var(--zinc-950)",
-    "var(--zinc-900)",
-    "var(--zinc-950)",
-  ];
   const linearGradients = [
     "linear-gradient(to bottom right, var(--teal-500), var(--teal-900))",
     "linear-gradient(to bottom right, var(--zinc-800), var(--zinc-950))",

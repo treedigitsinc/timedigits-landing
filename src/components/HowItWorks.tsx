@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { TracingBeam } from "./ui/tracing-beam";
 import { FolderOpen, Play, ChartBar } from "@phosphor-icons/react";
 

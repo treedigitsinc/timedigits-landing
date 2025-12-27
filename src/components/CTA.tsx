@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { ArrowRight, RocketLaunch } from "@phosphor-icons/react";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "../../lib/utils";
 
 export const BackgroundBeams = ({ className }: { className?: string }) => {
@@ -11,7 +11,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
     
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      const { left, top, width, height } = beams.getBoundingClientRect();
+      const { left, top } = beams.getBoundingClientRect();
       const x = clientX - left;
       const y = clientY - top;
       

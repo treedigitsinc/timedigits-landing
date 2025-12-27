@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { GithubLogo, TwitterLogo } from "@phosphor-icons/react";
 import { Logo } from "./Logo";
 
