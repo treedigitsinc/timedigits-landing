@@ -1,101 +1,53 @@
-import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Zap } from 'lucide-react'
-
-function useInView(threshold = 0.2) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [isInView, setIsInView] = useState(false)
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true)
-          observer.unobserve(element)
-        }
-      },
-      { threshold }
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [threshold])
-
-  return { ref, isInView }
-}
+"use client";
+import React from "react";
+import { ArrowRight, RocketLaunch } from "@phosphor-icons/react";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 export function CTA() {
-  const { ref, isInView } = useInView(0.2)
-
   return (
-    <section className="cta-section section" ref={ref}>
+    <section className="py-32 bg-zinc-950 relative overflow-hidden">
+      {/* Background Accents */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      
       <div className="container relative z-10">
-        <div className="text-center max-w-2xl mx-auto">
-          {/* Icon */}
-          <div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 mb-8 transition-all duration-700"
-            style={{
-              opacity: isInView ? 1 : 0,
-              transform: isInView ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.9)',
-            }}
-          >
-            <Zap className="h-8 w-8 text-white" strokeWidth={1.5} />
+        <div className="glass rounded-[3rem] p-12 md:p-24 text-center border-zinc-800/50 relative overflow-hidden">
+          {/* Decorative Glow */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
+
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-500/10 text-teal-500 mb-8">
+            <RocketLaunch size={32} weight="duotone" />
           </div>
 
-          {/* Headline */}
-          <h2
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white transition-all duration-700"
-            style={{
-              opacity: isInView ? 1 : 0,
-              transform: isInView ? 'translateY(0)' : 'translateY(24px)',
-              transitionDelay: '100ms'
-            }}
-          >
-            Ready to start?
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Ready to track time <br className="hidden md:block" />
+            the simple way?
           </h2>
-
-          {/* Subheadline */}
-          <p
-            className="mt-4 text-lg md:text-xl text-white/70 transition-all duration-700"
-            style={{
-              opacity: isInView ? 1 : 0,
-              transform: isInView ? 'translateY(0)' : 'translateY(24px)',
-              transitionDelay: '200ms'
-            }}
-          >
-            Join thousands who track their time the simple way.
+          
+          <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+            Join thousands of individuals and teams who have ditched 
+            bloated tools for timedigits.
           </p>
 
-          {/* CTA Button */}
-          <a
-            href="#pricing"
-            className="mt-10 btn h-14 px-10 text-base font-semibold bg-white text-teal hover:bg-white/90 inline-flex transition-all duration-700"
-            style={{
-              opacity: isInView ? 1 : 0,
-              transform: isInView ? 'translateY(0)' : 'translateY(24px)',
-              transitionDelay: '300ms'
-            }}
-          >
-            Start Free
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://timedigits.vercel.app/signup">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                className="bg-zinc-950 text-white flex items-center gap-2 px-10 py-4 text-lg font-bold"
+              >
+                <span>Start Free Now</span>
+                <ArrowRight size={20} weight="bold" />
+              </HoverBorderGradient>
+            </a>
+          </div>
 
-          {/* Trust indicators */}
-          <div
-            className="mt-8 flex items-center justify-center gap-6 text-white/50 text-sm transition-all duration-700"
-            style={{
-              opacity: isInView ? 1 : 0,
-              transitionDelay: '400ms'
-            }}
-          >
-            <span>No credit card</span>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
+          <div className="mt-10 flex items-center justify-center gap-8 text-zinc-500 text-sm font-medium">
+            <span>No credit card required</span>
+            <div className="w-1 h-1 rounded-full bg-zinc-800" />
             <span>Free forever for individuals</span>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

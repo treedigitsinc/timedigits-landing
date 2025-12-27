@@ -1,193 +1,165 @@
-import { useEffect, useRef, useState } from 'react'
-import { Check, Sparkles } from 'lucide-react'
+"use client";
+import React from "react";
+import { Check, Sparkle } from "@phosphor-icons/react";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { cn } from "../lib/utils";
 
 const plans = [
   {
-    name: 'Solo',
-    price: 'Free',
-    description: 'For individuals',
+    name: "Solo",
+    price: "Free",
+    description: "For individuals tracking their own time.",
     features: [
-      'Unlimited time tracking',
-      'Unlimited projects',
-      'Full history',
-      'Reports & export',
-      'Works offline',
+      "Unlimited time tracking",
+      "Unlimited projects",
+      "Full history forever",
+      "Reports & CSV export",
+      "Works offline",
     ],
-    cta: 'Start Free',
-    primary: false,
+    cta: "Start Free",
+    popular: false,
   },
   {
-    name: 'Team',
-    price: '$1',
-    period: '/user/month',
-    description: 'For teams of any size',
+    name: "Team",
+    price: "$5",
+    period: "/month",
+    description: "For teams of up to 5 members.",
     features: [
-      'Everything in Solo',
-      'Unlimited team members',
-      'Shared workspace',
-      'Team reports',
-      'Real-time sync',
+      "Everything in Solo",
+      "Up to 5 team members",
+      "Shared workspace",
+      "Team reports & analytics",
+      "Real-time sync",
+      "Extra members $1/mo",
     ],
-    cta: 'Start Trial',
-    primary: true,
+    cta: "Start Trial",
+    popular: true,
   },
-]
+];
 
-const comparison = [
-  { name: 'Toggl', price: '$9/user', savings: '89%' },
-  { name: 'Harvest', price: '$12/user', savings: '92%' },
-  { name: 'Clockify Pro', price: '$5/user', savings: '80%' },
-]
-
-function useInView(threshold = 0.2) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [isInView, setIsInView] = useState(false)
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true)
-          observer.unobserve(element)
-        }
-      },
-      { threshold }
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [threshold])
-
-  return { ref, isInView }
-}
+const competitors = [
+  { name: "Toggl", price: "$9/user", total: "$90/mo", savings: "89%" },
+  { name: "Harvest", price: "$12/user", total: "$120/mo", savings: "92%" },
+  { name: "Clockify Pro", price: "$5/user", total: "$50/mo", savings: "80%" },
+];
 
 export function Pricing() {
-  const { ref, isInView } = useInView(0.1)
-
   return (
-    <section id="pricing" className="section bg-white">
-      <div className="container">
-        {/* Section heading - centered */}
-        <div className="text-center mb-16" ref={ref}>
-          <h2 className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--foreground))] transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Simple pricing
+    <section id="pricing" className="py-32 bg-zinc-950 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            Simple, honest pricing
           </h2>
-          <p className={`mt-4 text-lg md:text-xl text-[hsl(var(--muted-foreground))] transition-all duration-700 delay-100 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
             No per-seat tiers. No hidden costs. No enterprise pricing.
+            Just one flat fee for teams.
           </p>
         </div>
 
-        {/* Pricing cards - centered */}
-        <div className="grid gap-8 md:grid-cols-2 max-w-3xl mx-auto">
-          {plans.map((plan, index) => (
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-32">
+          {plans.map((plan) => (
             <div
-              key={index}
-              className={`pricing-card flex flex-col ${plan.primary ? 'pricing-card-popular' : ''} transition-all duration-700`}
-              style={{
-                opacity: isInView ? 1 : 0,
-                transform: isInView ? 'translateY(0)' : 'translateY(32px)',
-                transitionDelay: `${200 + index * 150}ms`
-              }}
+              key={plan.name}
+              className={cn(
+                "relative flex flex-col p-8 rounded-[2rem] border transition-all duration-500",
+                plan.popular
+                  ? "bg-zinc-900/50 border-teal-500/30 shadow-[0_0_40px_-15px_rgba(20,184,166,0.3)]"
+                  : "bg-zinc-900/20 border-zinc-800 hover:border-zinc-700"
+              )}
             >
-              {/* Popular badge - inside card */}
-              {plan.primary && (
-                <div className="inline-flex self-start items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
-                  <Sparkles className="h-3 w-3" />
-                  Most Popular
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-teal-500 text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
+                  <Sparkle size={14} weight="fill" />
+                  MOST POPULAR
                 </div>
               )}
 
-              {/* Plan name and description */}
-              <h3 className={`font-display font-semibold text-xl ${plan.primary ? 'text-white' : 'text-[hsl(var(--foreground))]'}`}>
-                {plan.name}
-              </h3>
-              <p className={`text-sm mt-1 ${plan.primary ? 'text-white/70' : 'text-[hsl(var(--muted-foreground))]'}`}>
-                {plan.description}
-              </p>
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-zinc-400 text-sm">{plan.description}</p>
+              </div>
 
-              {/* Price */}
-              <div className="mt-6 flex items-baseline">
-                <span className={`font-display text-5xl font-bold ${plan.primary ? 'text-white' : 'text-[hsl(var(--foreground))]'}`}>
-                  {plan.price}
-                </span>
+              <div className="mb-8 flex items-baseline gap-1">
+                <span className="text-5xl font-bold text-white">{plan.price}</span>
                 {plan.period && (
-                  <span className={`ml-1 text-sm ${plan.primary ? 'text-white/70' : 'text-[hsl(var(--muted-foreground))]'}`}>
-                    {plan.period}
-                  </span>
+                  <span className="text-zinc-500 font-medium">{plan.period}</span>
                 )}
               </div>
 
-              {/* Features list */}
-              <ul className="mt-8 space-y-4 flex-grow">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3 text-sm">
-                    <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${plan.primary ? 'bg-white/20' : 'bg-teal/10'}`}>
-                      <Check className={`h-3 w-3 ${plan.primary ? 'text-white' : 'text-teal'}`} strokeWidth={3} />
-                    </div>
-                    <span className={plan.primary ? 'text-white/90' : 'text-[hsl(var(--foreground))]'}>
-                      {feature}
-                    </span>
+              <ul className="space-y-4 mb-10 flex-1">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm text-zinc-300">
+                    <Check size={18} className="text-teal-500 mt-0.5 flex-shrink-0" weight="bold" />
+                    {feature}
                   </li>
                 ))}
               </ul>
 
-              {/* CTA button */}
-              <a
-                href="#"
-                className={`mt-8 btn h-12 w-full text-sm font-semibold ${
-                  plan.primary
-                    ? 'bg-white text-teal hover:bg-white/90'
-                    : 'btn-primary'
-                }`}
-              >
-                {plan.cta}
+              <a href="https://timedigits.vercel.app/signup" className="block">
+                {plan.popular ? (
+                  <HoverBorderGradient
+                    containerClassName="w-full rounded-xl"
+                    className="w-full bg-teal-500 text-white py-3 font-bold"
+                  >
+                    {plan.cta}
+                  </HoverBorderGradient>
+                ) : (
+                  <button className="w-full py-3 rounded-xl bg-zinc-800 text-white font-bold hover:bg-zinc-700 transition-colors">
+                    {plan.cta}
+                  </button>
+                )}
               </a>
             </div>
           ))}
         </div>
 
-        {/* Competitor comparison - centered */}
-        <div
-          className="mt-20 max-w-md mx-auto transition-all duration-700"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transform: isInView ? 'translateY(0)' : 'translateY(24px)',
-            transitionDelay: '600ms'
-          }}
-        >
-          <p className="text-center text-sm font-semibold text-[hsl(var(--foreground))] mb-6 font-display">
-            Compare to competitors
-          </p>
-          <div className="card overflow-hidden">
-            {comparison.map((item, index) => (
-              <div
-                key={index}
-                className={`flex items-center justify-between px-5 py-4 text-sm ${
-                  index < comparison.length - 1 ? 'border-b border-[hsl(var(--border))]' : ''
-                }`}
+        {/* Competitor Comparison */}
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h3 className="text-xl font-bold text-white">Compare to competitors</h3>
+            <p className="text-zinc-500 text-sm mt-2">Based on a 10-person team</p>
+          </div>
+
+          <div className="glass rounded-3xl overflow-hidden border-zinc-800/50">
+            <div className="grid grid-cols-4 p-6 border-b border-zinc-800/50 text-xs font-mono uppercase tracking-widest text-zinc-500">
+              <div className="col-span-1">Tool</div>
+              <div className="text-center">Price/User</div>
+              <div className="text-center">10-Person Team</div>
+              <div className="text-right">Savings</div>
+            </div>
+            
+            {competitors.map((comp, i) => (
+              <div 
+                key={comp.name} 
+                className={cn(
+                  "grid grid-cols-4 p-6 text-sm items-center",
+                  i !== competitors.length - 1 && "border-b border-zinc-800/50"
+                )}
               >
-                <span className="text-[hsl(var(--muted-foreground))]">{item.name}</span>
-                <span className="text-[hsl(var(--muted-foreground))] line-through">{item.price}</span>
-                <span className="font-semibold text-teal font-mono">Save {item.savings}</span>
+                <div className="font-bold text-white">{comp.name}</div>
+                <div className="text-center text-zinc-400">{comp.price}</div>
+                <div className="text-center text-zinc-400 line-through">{comp.total}</div>
+                <div className="text-right text-teal-400 font-mono font-bold">Save {comp.savings}</div>
               </div>
             ))}
+            
+            <div className="grid grid-cols-4 p-6 bg-teal-500/10 items-center">
+              <div className="font-bold text-teal-400">timedigits</div>
+              <div className="text-center text-teal-400">$1/user</div>
+              <div className="text-center text-teal-400 font-bold">$10/mo</div>
+              <div className="text-right text-teal-400 font-mono font-bold">—</div>
+            </div>
           </div>
+          
+          <p className="text-center text-zinc-600 text-xs mt-8">
+            * Competitor pricing based on public monthly pro plans as of Dec 2025.
+          </p>
         </div>
-
-        {/* Fine print */}
-        <p
-          className="text-center text-sm text-[hsl(var(--muted-foreground))] mt-8 transition-all duration-700"
-          style={{
-            opacity: isInView ? 1 : 0,
-            transitionDelay: '800ms'
-          }}
-        >
-          No credit card required. Cancel anytime.
-        </p>
       </div>
     </section>
-  )
+  );
 }

@@ -1,150 +1,113 @@
-import { useState, useEffect } from 'react'
-import { Clock, Menu, X } from 'lucide-react'
+"use client";
+import React, { useState, useEffect } from "react";
+import { List, X } from "@phosphor-icons/react";
+import { Logo } from "./Logo";
+import { cn } from "../lib/utils";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const navLinks = [
+    { name: "Features", href: "#features" },
+    { name: "Pricing", href: "#pricing" },
+  ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'glass border-b border-[hsl(var(--border))]'
-          : 'bg-transparent'
-      }`}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        isScrolled
+          ? "bg-zinc-950/80 backdrop-blur-md border-zinc-800 py-3"
+          : "bg-transparent border-transparent py-5"
+      )}
     >
-      <div className="container">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-full bg-teal flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Clock className="h-4 w-4 text-white" strokeWidth={2.5} />
-            </div>
-            <span className={`font-display font-semibold transition-colors ${scrolled ? 'text-[hsl(var(--foreground))]' : 'text-white'}`}>
-              timedigits
-            </span>
+      <div className="container flex items-center justify-between">
+        {/* Logo */}
+        <a href="/" className="flex items-center gap-2 group">
+          <Logo className="text-white group-hover:scale-110 transition-transform duration-300" size={32} />
+          <span className="text-xl font-bold tracking-tight text-white">
+            timedigits
+          </span>
+        </a>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://timedigits.vercel.app/login"
+            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-2"
+          >
+            Sign in
           </a>
+          <a
+            href="https://timedigits.vercel.app/signup"
+            className="bg-white text-black hover:bg-zinc-200 transition-colors px-5 py-2 rounded-full text-sm font-bold"
+          >
+            Get Started
+          </a>
+        </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <a
-              href="#features"
-              className={`text-sm link-underline transition-colors ${
-                scrolled
-                  ? 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
-              Features
-            </a>
-            <a
-              href="#how-it-works"
-              className={`text-sm link-underline transition-colors ${
-                scrolled
-                  ? 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
-              How it works
-            </a>
-            <a
-              href="#pricing"
-              className={`text-sm link-underline transition-colors ${
-                scrolled
-                  ? 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
-              Pricing
-            </a>
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-white p-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <List size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-zinc-950 border-b border-zinc-800 p-6 flex flex-col gap-6 animate-in fade-in slide-in-from-top-5">
+          <nav className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-lg font-medium text-zinc-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
           </nav>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="flex flex-col gap-4 pt-6 border-t border-zinc-800">
             <a
-              href="#"
-              className={`text-sm transition-colors ${
-                scrolled
-                  ? 'text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]'
-                  : 'text-white/70 hover:text-white'
-              }`}
+              href="https://timedigits.vercel.app/login"
+              className="text-lg font-medium text-zinc-400"
             >
               Sign in
             </a>
             <a
-              href="#pricing"
-              className="btn btn-primary px-5 py-2 text-sm"
+              href="https://timedigits.vercel.app/signup"
+              className="bg-teal-500 text-white py-4 rounded-2xl text-center font-bold"
             >
               Get Started
             </a>
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              scrolled
-                ? 'text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))]'
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
-
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden glass border-t border-[hsl(var(--border))] py-4">
-            <nav className="flex flex-col gap-2">
-              <a
-                href="#features"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] rounded-lg transition-colors"
-              >
-                Features
-              </a>
-              <a
-                href="#how-it-works"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] rounded-lg transition-colors"
-              >
-                How it works
-              </a>
-              <a
-                href="#pricing"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] rounded-lg transition-colors"
-              >
-                Pricing
-              </a>
-              <div className="border-t border-[hsl(var(--border))] mt-2 pt-2">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] rounded-lg transition-colors"
-                >
-                  Sign in
-                </a>
-                <a
-                  href="#pricing"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block mx-4 mt-2 btn btn-primary py-2 text-sm text-center"
-                >
-                  Get Started
-                </a>
-              </div>
-            </nav>
-          </div>
-        )}
-      </div>
+      )}
     </header>
-  )
+  );
 }

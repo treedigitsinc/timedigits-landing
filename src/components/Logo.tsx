@@ -1,9 +1,11 @@
+import React from "react";
+
 interface LogoProps {
-  className?: string
-  size?: number
+  className?: string;
+  size?: number;
 }
 
-export function Logo({ className = '', size = 32 }: LogoProps) {
+export function Logo({ className = "", size = 32 }: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,37 +14,43 @@ export function Logo({ className = '', size = 32 }: LogoProps) {
       height={size}
       className={className}
     >
-      {/* Clock circle */}
+      <defs>
+        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#14b8a6" />
+          <stop offset="100%" stopColor="#0d9488" />
+        </linearGradient>
+      </defs>
+      {/* Outer ring */}
       <circle
         cx="16"
         cy="16"
         r="14"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+        stroke="url(#logo-gradient)"
+        strokeWidth="2.5"
       />
-      {/* Hour hand (pointing to ~10) */}
+      {/* Hour hand */}
       <line
         x1="16"
         y1="16"
-        x2="11"
-        y2="10"
+        x2="16"
+        y2="8"
         stroke="currentColor"
         strokeWidth="2.5"
         strokeLinecap="round"
       />
-      {/* Minute hand (pointing to ~2) */}
+      {/* Minute hand */}
       <line
         x1="16"
         y1="16"
         x2="22"
-        y2="8"
+        y2="16"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="2.5"
         strokeLinecap="round"
       />
       {/* Center dot */}
       <circle cx="16" cy="16" r="2" fill="currentColor" />
     </svg>
-  )
+  );
 }
