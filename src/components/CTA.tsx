@@ -1,39 +1,23 @@
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 export function CTA() {
   return (
-    <section className="py-24 border-t bg-zinc-950 relative overflow-hidden">
-      {/* Subtle animated gradient */}
-      <motion.div
-        animate={{
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="absolute inset-0 bg-gradient-to-br from-zinc-800/50 via-transparent to-zinc-800/50"
-      />
-
-      <div className="container relative">
+    <section className="py-20 md:py-28 bg-stone-900">
+      <div className="container">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
             Ready to start?
           </h2>
-          <p className="mt-4 text-lg text-zinc-400">
+          <p className="mt-4 text-lg text-stone-400">
             Join thousands who track their time the simple way.
           </p>
-          <motion.a
+          <a
             href="#pricing"
-            className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-sm font-semibold text-zinc-900 shadow-lg shadow-white/20"
-            whileHover={{ scale: 1.02, y: -2 }}
-            whileTap={{ scale: 0.98 }}
+            className="mt-8 inline-flex h-14 items-center justify-center rounded-lg bg-white px-10 text-base font-semibold text-stone-900 btn-transition hover:bg-stone-100"
           >
             Start Free
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </motion.a>
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>

@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 const steps = [
   { step: '1', text: 'Pick a project' },
   { step: '2', text: 'Start the timer' },
@@ -8,29 +6,30 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 border-t">
+    <section id="how-it-works" className="py-20 md:py-28 border-t border-stone-200">
       <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        {/* Section heading */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
             How it works
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-4 md:gap-8">
+        {/* Steps */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-6 md:gap-12">
           {steps.map((item, index) => (
-            <div key={index} className="flex items-center gap-4">
-              <motion.span
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 text-sm font-medium text-white"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-              >
+            <div key={index} className="flex items-center gap-4 sm:gap-6">
+              {/* Step circle */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-900 text-white font-semibold text-sm shrink-0 btn-transition hover:bg-stone-800">
                 {item.step}
-              </motion.span>
-              <span className="text-zinc-900 font-medium">{item.text}</span>
+              </div>
 
-              {/* Arrow between steps (not after last) */}
+              {/* Step text */}
+              <span className="text-stone-900 font-medium text-lg">{item.text}</span>
+
+              {/* Connector line (not after last) */}
               {index < steps.length - 1 && (
-                <div className="hidden sm:block w-8 md:w-16 h-px bg-zinc-300 ml-4" />
+                <div className="hidden sm:block w-12 md:w-20 h-px bg-stone-300" />
               )}
             </div>
           ))}

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 
 const plans = [
@@ -41,101 +40,106 @@ const comparison = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 border-t">
+    <section id="pricing" className="py-20 md:py-28 border-t border-stone-200">
       <div className="container">
+        {/* Section heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
             Simple pricing
           </h2>
-          <p className="mt-4 text-zinc-600">
+          <p className="mt-4 text-lg text-stone-600">
             No per-seat tiers. No hidden costs. No enterprise pricing.
           </p>
         </div>
 
+        {/* Pricing cards */}
         <div className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className={`relative rounded-xl p-8 ${
+              className={`relative flex flex-col rounded-2xl p-8 card-hover ${
                 plan.primary
-                  ? 'bg-zinc-900 text-white ring-1 ring-zinc-900'
-                  : 'bg-white border border-zinc-200 shadow-sm'
+                  ? 'bg-stone-900 text-white ring-2 ring-stone-900'
+                  : 'bg-white border border-stone-200'
               }`}
             >
+              {/* Popular badge - inside card */}
               {plan.primary && (
-                <div className="inline-block bg-zinc-700 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
+                <div className="inline-block self-start bg-stone-700 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
                   Most Popular
                 </div>
               )}
 
-              <h3 className={`font-semibold text-lg ${plan.primary ? 'text-white' : 'text-zinc-900'}`}>
+              {/* Plan name and description */}
+              <h3 className={`font-semibold text-xl ${plan.primary ? 'text-white' : 'text-stone-900'}`}>
                 {plan.name}
               </h3>
-              <p className={`text-sm mt-1 ${plan.primary ? 'text-zinc-400' : 'text-zinc-600'}`}>
+              <p className={`text-sm mt-1 ${plan.primary ? 'text-stone-400' : 'text-stone-600'}`}>
                 {plan.description}
               </p>
 
+              {/* Price */}
               <div className="mt-6 flex items-baseline">
-                <span className={`text-4xl font-bold ${plan.primary ? 'text-white' : 'text-zinc-900'}`}>
+                <span className={`text-5xl font-bold ${plan.primary ? 'text-white' : 'text-stone-900'}`}>
                   {plan.price}
                 </span>
                 {plan.period && (
-                  <span className={plan.primary ? 'text-zinc-400 ml-1' : 'text-zinc-500 ml-1'}>
+                  <span className={`ml-1 text-sm ${plan.primary ? 'text-stone-400' : 'text-stone-500'}`}>
                     {plan.period}
                   </span>
                 )}
               </div>
 
-              <ul className="mt-8 space-y-3">
+              {/* Features list */}
+              <ul className="mt-8 space-y-4 flex-grow">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3 text-sm">
-                    <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${plan.primary ? 'text-zinc-400' : 'text-zinc-900'}`} />
-                    <span className={plan.primary ? 'text-zinc-300' : 'text-zinc-700'}>
+                    <Check className={`h-5 w-5 mt-0.5 flex-shrink-0 ${plan.primary ? 'text-stone-400' : 'text-stone-900'}`} />
+                    <span className={plan.primary ? 'text-stone-300' : 'text-stone-700'}>
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              <motion.a
+              {/* CTA button */}
+              <a
                 href="#"
-                className={`mt-8 block w-full rounded-lg py-3 text-center text-sm font-medium transition-colors ${
+                className={`mt-8 block w-full rounded-lg py-3.5 text-center text-sm font-semibold btn-transition ${
                   plan.primary
-                    ? 'bg-white text-zinc-900 hover:bg-zinc-100'
-                    : 'bg-zinc-900 text-white hover:bg-zinc-800'
+                    ? 'bg-white text-stone-900 hover:bg-stone-100'
+                    : 'bg-stone-900 text-white hover:bg-stone-800'
                 }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 {plan.cta}
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
           ))}
         </div>
 
-        {/* Comparison */}
-        <div className="mt-16 max-w-md mx-auto">
-          <p className="text-center text-sm font-medium text-zinc-900 mb-4">
+        {/* Competitor comparison */}
+        <div className="mt-20 max-w-md mx-auto">
+          <p className="text-center text-sm font-semibold text-stone-900 mb-6">
             Compare to competitors
           </p>
-          <div className="rounded-lg border border-zinc-200 overflow-hidden">
+          <div className="rounded-xl border border-stone-200 overflow-hidden bg-white">
             {comparison.map((item, index) => (
               <div
                 key={index}
-                className={`flex items-center justify-between px-4 py-3 text-sm ${
-                  index < comparison.length - 1 ? 'border-b border-zinc-100' : ''
+                className={`flex items-center justify-between px-5 py-4 text-sm ${
+                  index < comparison.length - 1 ? 'border-b border-stone-100' : ''
                 }`}
               >
-                <span className="text-zinc-600">{item.name}</span>
-                <span className="text-zinc-400 line-through">{item.price}</span>
-                <span className="font-medium text-zinc-900">Save {item.savings}</span>
+                <span className="text-stone-600">{item.name}</span>
+                <span className="text-stone-400 line-through">{item.price}</span>
+                <span className="font-semibold text-stone-900">Save {item.savings}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-center text-sm text-zinc-500 mt-8">
+        {/* Fine print */}
+        <p className="text-center text-sm text-stone-500 mt-8">
           No credit card required. Cancel anytime.
         </p>
       </div>
