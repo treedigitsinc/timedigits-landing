@@ -67,7 +67,7 @@ export function Pricing() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto"
+          className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto pt-2"
         >
           {plans.map((plan, index) => (
             <motion.div
