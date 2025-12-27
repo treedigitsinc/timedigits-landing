@@ -1,89 +1,57 @@
-import { Play, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export function Hero() {
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 hero-gradient">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-            Now available for teams
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight mb-6">
-            Track time in seconds
+    <section className="py-20 md:py-32">
+      <div className="container">
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+            Time tracking that
             <br />
-            <span className="gradient-text">Save money for real</span>
+            <span className="text-zinc-500">stays out of your way</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            The simplest time tracker ever built. Free forever for individuals.
+          <p className="mt-6 text-lg text-zinc-600 max-w-xl mx-auto">
+            Start a timer. Stop when done. That's it.
             <br />
-            <span className="font-semibold text-emerald-600">$5/month</span> for your whole team — not per seat.
+            Free for individuals. $5/month for teams.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#pricing"
-              className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2"
+              className="inline-flex h-11 items-center justify-center rounded-md bg-zinc-900 px-8 text-sm font-medium text-white hover:bg-zinc-800 transition-colors"
             >
-              Start Tracking Free
-              <ArrowRight className="w-5 h-5" />
+              Start Free
+              <ArrowRight className="ml-2 h-4 w-4" />
             </a>
             <a
-              href="#how-it-works"
-              className="w-full sm:w-auto bg-gray-100 hover:bg-gray-200 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center gap-2"
+              href="#features"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-zinc-200 bg-white px-8 text-sm font-medium text-zinc-900 hover:bg-zinc-50 transition-colors"
             >
-              <Play className="w-5 h-5" />
-              See How It Works
+              Learn more
             </a>
           </div>
+        </div>
 
-          {/* App Preview */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 pointer-events-none"></div>
-            <div className="bg-gray-900 rounded-xl shadow-2xl overflow-hidden border border-gray-800">
-              <div className="bg-gray-800 px-4 py-3 flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="p-8">
-                {/* Timer UI Mock */}
-                <div className="bg-gray-800 rounded-lg p-6 mb-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-gray-400 text-sm">Currently tracking</span>
-                    <span className="text-emerald-400 text-sm font-medium">Project Alpha</span>
-                  </div>
-                  <div className="text-6xl font-mono text-white text-center mb-6">02:34:17</div>
-                  <div className="flex justify-center gap-4">
-                    <button className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center">
-                      <div className="w-5 h-5 bg-white rounded-sm"></div>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Today's entries mock */}
-                <div className="space-y-3">
-                  <div className="bg-gray-800 rounded-lg p-4 flex items-center justify-between">
-                    <div>
-                      <div className="text-white font-medium">Client Meeting</div>
-                      <div className="text-gray-400 text-sm">9:00 AM - 10:30 AM</div>
-                    </div>
-                    <div className="text-emerald-400 font-mono">1.5h</div>
-                  </div>
-                  <div className="bg-gray-800 rounded-lg p-4 flex items-center justify-between">
-                    <div>
-                      <div className="text-white font-medium">Development</div>
-                      <div className="text-gray-400 text-sm">10:45 AM - 12:30 PM</div>
-                    </div>
-                    <div className="text-emerald-400 font-mono">1.75h</div>
-                  </div>
-                </div>
+        {/* Simple app preview */}
+        <div className="mt-16 md:mt-24 mx-auto max-w-2xl">
+          <div className="rounded-lg border bg-zinc-950 p-1">
+            <div className="flex items-center gap-1.5 px-3 py-2">
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <div className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+            </div>
+            <div className="rounded-md bg-zinc-900 p-8">
+              <div className="text-center">
+                <p className="text-xs text-zinc-500 mb-3">Currently tracking</p>
+                <p className="text-5xl md:text-6xl font-mono text-white tracking-wider">
+                  02:34:17
+                </p>
+                <p className="text-sm text-zinc-400 mt-3">Project Alpha</p>
+                <button className="mt-6 h-12 w-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center mx-auto hover:bg-zinc-700 transition-colors">
+                  <div className="h-3 w-3 bg-white rounded-sm" />
+                </button>
               </div>
             </div>
           </div>

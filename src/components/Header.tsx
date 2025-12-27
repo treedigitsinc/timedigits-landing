@@ -1,66 +1,72 @@
-import { Clock, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-              <Clock className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-bold text-xl text-gray-900">TimeDigits</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="container flex h-14 items-center justify-between">
+        <a href="#" className="flex items-center gap-2 font-semibold">
+          <span className="text-lg">TimeDigits</span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" className="text-zinc-600 hover:text-zinc-900 transition-colors">
+            Features
           </a>
+          <a href="#pricing" className="text-zinc-600 hover:text-zinc-900 transition-colors">
+            Pricing
+          </a>
+        </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">How it Works</a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Sign In</a>
-            <a
-              href="#pricing"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
-            >
-              Start Free
-            </a>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        {/* CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <a href="#" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+            Sign in
+          </a>
+          <a
+            href="#pricing"
+            className="inline-flex h-9 items-center justify-center rounded-md bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-800 transition-colors"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            Get Started
+          </a>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col gap-4">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">How it Works</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Sign In</a>
-              <a
-                href="#pricing"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium transition-colors text-center"
-              >
-                Start Free
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden p-2 -mr-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t bg-white">
+          <nav className="container py-4 flex flex-col gap-3">
+            <a href="#features" className="text-sm text-zinc-600 hover:text-zinc-900 py-2">
+              Features
+            </a>
+            <a href="#pricing" className="text-sm text-zinc-600 hover:text-zinc-900 py-2">
+              Pricing
+            </a>
+            <hr className="my-2" />
+            <a href="#" className="text-sm text-zinc-600 hover:text-zinc-900 py-2">
+              Sign in
+            </a>
+            <a
+              href="#pricing"
+              className="inline-flex h-10 items-center justify-center rounded-md bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-800 transition-colors"
+            >
+              Get Started
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
