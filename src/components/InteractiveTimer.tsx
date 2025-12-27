@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Play, Square, Timer } from "@phosphor-icons/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
 
 export function InteractiveTimer() {
@@ -27,6 +27,10 @@ export function InteractiveTimer() {
       .padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
+  // Mock data for the weekly activity
+  const weeklyActivity = [30, 45, 25, 60, 40, 50]; // Mon-Sat
+  const currentDayProgress = Math.min((seconds / 60) * 100, 100); // Grow based on seconds (1 min = full bar for demo)
+
   return (
     <div className="relative group">
       {/* Glow Effect */}
@@ -38,33 +42,28 @@ export function InteractiveTimer() {
       />
 
       <div className="relative glass rounded-[2rem] p-8 md:p-12 border-zinc-800/50 shadow-2xl w-full max-w-md mx-auto overflow-hidden">
-        {/* Background Dashboard Animation */}
-        <AnimatePresence>
-          {isRunning && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="absolute inset-0 z-0 flex items-end justify-center gap-1 px-12 pb-24 opacity-20 pointer-events-none"
-            >
-              {[40, 70, 45, 90, 65, 80, 35, 50, 85, 60].map((height, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ height: 0 }}
-                  animate={{ height: `${height}%` }}
-                  transition={{
-                    duration: 0.5,
-                    delay: i * 0.05,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    repeatDelay: Math.random() * 2
-                  }}
-                  className="w-full bg-teal-500 rounded-t-sm"
-                />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Subtle Weekly Activity Dashboard */}
+        <div className="absolute bottom-0 left-0 right-0 px-8 pb-6 flex items-end justify-between gap-2 opacity-20 pointer-events-none">
+          {weeklyActivity.map((height, i) => (
+            <div key={i} className="flex-1 flex flex-col items-center gap-2">
+              <div 
+                className="w-full bg-zinc-700 rounded-t-sm transition-all duration-500" 
+                style={{ height: `${height}%` }}
+              />
+              <div className="w-1 h-1 rounded-full bg-zinc-800" />
+            </div>
+          ))}
+          {/* Current Day (Sunday/Today) */}
+          <div className="flex-1 flex flex-col items-center gap-2">
+            <motion.div 
+              animate={{ 
+                height: isRunning ? `${Math.max(15, currentDayProgress)}%` : "10%" 
+              }}
+              className="w-full bg-teal-500 rounded-t-sm"
+            />
+            <div className="w-1 h-1 rounded-full bg-teal-500" />
+          </div>
+        </div>
 
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-8">
