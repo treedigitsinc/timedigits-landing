@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Play, Square, Timer } from "@phosphor-icons/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../lib/utils";
 
 export function InteractiveTimer() {
@@ -36,45 +37,75 @@ export function InteractiveTimer() {
         )}
       />
 
-      <div className="relative glass rounded-[2rem] p-8 md:p-12 border-zinc-800/50 shadow-2xl w-full max-w-md mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
-            <div className={cn(
-              "w-2 h-2 rounded-full",
-              isRunning ? "bg-teal-500 animate-pulse" : "bg-zinc-600"
-            )} />
-            <span className="text-xs font-mono uppercase tracking-widest text-zinc-500">
-              {isRunning ? "Live Tracking" : "Ready to track"}
-            </span>
-          </div>
-          <Timer size={20} className="text-zinc-600" weight="duotone" />
-        </div>
+      <div className="relative glass rounded-[2rem] p-8 md:p-12 border-zinc-800/50 shadow-2xl w-full max-w-md mx-auto overflow-hidden">
+        {/* Background Dashboard Animation */}
+        <AnimatePresence>
+          {isRunning && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="absolute inset-0 z-0 flex items-end justify-center gap-1 px-12 pb-24 opacity-20 pointer-events-none"
+            >
+              {[40, 70, 45, 90, 65, 80, 35, 50, 85, 60].map((height, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ height: 0 }}
+                  animate={{ height: `${height}%` }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.05,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    repeatDelay: Math.random() * 2
+                  }}
+                  className="w-full bg-teal-500 rounded-t-sm"
+                />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <div className="text-center mb-10">
-          <div className="font-mono text-6xl md:text-7xl font-light tracking-tighter text-white tabular-nums">
-            {formatTime(seconds)}
+        <div className="relative z-10">
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-2">
+              <div className={cn(
+                "w-2 h-2 rounded-full",
+                isRunning ? "bg-teal-500 animate-pulse" : "bg-zinc-600"
+              )} />
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-500">
+                {isRunning ? "Live Tracking" : "Ready to track"}
+              </span>
+            </div>
+            <Timer size={20} className="text-zinc-600" weight="duotone" />
           </div>
-          <div className="mt-4 text-zinc-400 font-display text-sm">
-            Project Alpha
-          </div>
-        </div>
 
-        <div className="flex justify-center">
-          <button
-            onClick={() => setIsRunning(!isRunning)}
-            className={cn(
-              "w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 shadow-xl",
-              isRunning 
-                ? "bg-zinc-800 text-white hover:bg-zinc-700" 
-                : "bg-teal-500 text-white hover:bg-teal-400 scale-110"
-            )}
-          >
-            {isRunning ? (
-              <Square size={32} weight="fill" />
-            ) : (
-              <Play size={32} weight="fill" className="ml-1" />
-            )}
-          </button>
+          <div className="text-center mb-10">
+            <div className="font-mono text-6xl md:text-7xl font-light tracking-tighter text-white tabular-nums">
+              {formatTime(seconds)}
+            </div>
+            <div className="mt-4 text-zinc-400 font-display text-sm">
+              Project Alpha
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              onClick={() => setIsRunning(!isRunning)}
+              className={cn(
+                "w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 shadow-xl",
+                isRunning 
+                  ? "bg-zinc-800 text-white hover:bg-zinc-700" 
+                  : "bg-teal-500 text-white hover:bg-teal-400 scale-110"
+              )}
+            >
+              {isRunning ? (
+                <Square size={32} weight="fill" />
+              ) : (
+                <Play size={32} weight="fill" className="ml-1" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
