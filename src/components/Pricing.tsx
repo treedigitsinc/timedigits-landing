@@ -1,4 +1,5 @@
-import { Check } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Check, Sparkles } from 'lucide-react'
 
 const plans = [
   {
@@ -38,16 +39,43 @@ const comparison = [
   { name: 'Clockify Pro', price: '$5/user', savings: '80%' },
 ]
 
+function useInView(threshold = 0.2) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+          observer.unobserve(element)
+        }
+      },
+      { threshold }
+    )
+
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isInView }
+}
+
 export function Pricing() {
+  const { ref, isInView } = useInView(0.1)
+
   return (
-    <section id="pricing" className="section">
+    <section id="pricing" className="section bg-white">
       <div className="container">
         {/* Section heading - centered */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[hsl(var(--foreground))]">
+        <div className="text-center mb-16" ref={ref}>
+          <h2 className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[hsl(var(--foreground))] transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Simple pricing
           </h2>
-          <p className="mt-4 text-lg text-[hsl(var(--muted-foreground))]">
+          <p className={`mt-4 text-lg md:text-xl text-[hsl(var(--muted-foreground))] transition-all duration-700 delay-100 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             No per-seat tiers. No hidden costs. No enterprise pricing.
           </p>
         </div>
@@ -57,21 +85,23 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative flex flex-col rounded-2xl p-8 ${
-                plan.primary
-                  ? 'bg-teal text-white ring-2 ring-teal'
-                  : 'card'
-              }`}
+              className={`pricing-card flex flex-col ${plan.primary ? 'pricing-card-popular' : ''} transition-all duration-700`}
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? 'translateY(0)' : 'translateY(32px)',
+                transitionDelay: `${200 + index * 150}ms`
+              }}
             >
               {/* Popular badge - inside card */}
               {plan.primary && (
-                <div className="inline-block self-start bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
+                <div className="inline-flex self-start items-center gap-1.5 bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
+                  <Sparkles className="h-3 w-3" />
                   Most Popular
                 </div>
               )}
 
               {/* Plan name and description */}
-              <h3 className={`font-semibold text-xl ${plan.primary ? 'text-white' : 'text-[hsl(var(--foreground))]'}`}>
+              <h3 className={`font-display font-semibold text-xl ${plan.primary ? 'text-white' : 'text-[hsl(var(--foreground))]'}`}>
                 {plan.name}
               </h3>
               <p className={`text-sm mt-1 ${plan.primary ? 'text-white/70' : 'text-[hsl(var(--muted-foreground))]'}`}>
@@ -80,7 +110,7 @@ export function Pricing() {
 
               {/* Price */}
               <div className="mt-6 flex items-baseline">
-                <span className={`text-5xl font-bold ${plan.primary ? 'text-white' : 'text-[hsl(var(--foreground))]'}`}>
+                <span className={`font-display text-5xl font-bold ${plan.primary ? 'text-white' : 'text-[hsl(var(--foreground))]'}`}>
                   {plan.price}
                 </span>
                 {plan.period && (
@@ -94,7 +124,9 @@ export function Pricing() {
               <ul className="mt-8 space-y-4 flex-grow">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3 text-sm">
-                    <Check className={`h-5 w-5 mt-0.5 flex-shrink-0 ${plan.primary ? 'text-white/70' : 'text-teal'}`} />
+                    <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${plan.primary ? 'bg-white/20' : 'bg-teal/10'}`}>
+                      <Check className={`h-3 w-3 ${plan.primary ? 'text-white' : 'text-teal'}`} strokeWidth={3} />
+                    </div>
                     <span className={plan.primary ? 'text-white/90' : 'text-[hsl(var(--foreground))]'}>
                       {feature}
                     </span>
@@ -118,8 +150,15 @@ export function Pricing() {
         </div>
 
         {/* Competitor comparison - centered */}
-        <div className="mt-20 max-w-md mx-auto">
-          <p className="text-center text-sm font-semibold text-[hsl(var(--foreground))] mb-6">
+        <div
+          className="mt-20 max-w-md mx-auto transition-all duration-700"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transform: isInView ? 'translateY(0)' : 'translateY(24px)',
+            transitionDelay: '600ms'
+          }}
+        >
+          <p className="text-center text-sm font-semibold text-[hsl(var(--foreground))] mb-6 font-display">
             Compare to competitors
           </p>
           <div className="card overflow-hidden">
@@ -132,14 +171,20 @@ export function Pricing() {
               >
                 <span className="text-[hsl(var(--muted-foreground))]">{item.name}</span>
                 <span className="text-[hsl(var(--muted-foreground))] line-through">{item.price}</span>
-                <span className="font-semibold text-teal">Save {item.savings}</span>
+                <span className="font-semibold text-teal font-mono">Save {item.savings}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Fine print */}
-        <p className="text-center text-sm text-[hsl(var(--muted-foreground))] mt-8">
+        <p
+          className="text-center text-sm text-[hsl(var(--muted-foreground))] mt-8 transition-all duration-700"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transitionDelay: '800ms'
+          }}
+        >
           No credit card required. Cancel anytime.
         </p>
       </div>
