@@ -4,22 +4,22 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm neutral palette */
-  --background: 30 6% 98%;
-  --foreground: 20 14% 10%;
+  /* treedigits-inspired palette */
+  --background: 0 0% 96%;
+  --foreground: 0 0% 15%;
   --card: 0 0% 100%;
-  --card-foreground: 20 14% 10%;
-  --primary: 20 14% 10%;
-  --primary-foreground: 30 6% 98%;
-  --secondary: 30 6% 96%;
-  --secondary-foreground: 20 14% 10%;
-  --muted: 30 6% 96%;
-  --muted-foreground: 25 5% 45%;
-  --accent: 199 89% 48%;
+  --card-foreground: 0 0% 15%;
+  --primary: 168 76% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 15%;
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 168 76% 36%;
   --accent-foreground: 0 0% 100%;
-  --border: 30 6% 90%;
-  --ring: 20 14% 10%;
-  --radius: 0.75rem;
+  --border: 0 0% 88%;
+  --ring: 168 76% 36%;
+  --radius: 1rem;
 }
 
 * {
@@ -41,25 +41,35 @@ body {
   line-height: 1.6;
 }
 
-/* Container utility */
+/* Container - properly centered */
 .container {
   width: 100%;
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @media (min-width: 640px) {
   .container {
-    padding: 0 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
-/* Animation utilities - CSS only, no scroll triggers */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Animation utilities - CSS only */
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -68,7 +78,7 @@ body {
 }
 
 .animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
+  animation: fade-in 0.7s ease-out forwards;
 }
 
 .animate-delay-100 { animation-delay: 100ms; }
@@ -86,25 +96,79 @@ body {
   }
 }
 
-/* Card hover effect */
-.card-hover {
+/* Card styles */
+.card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.12);
 }
 
-/* Button transitions */
-.btn-transition {
-  transition: all 0.15s ease;
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
 }
 
-.btn-transition:hover {
+.btn:hover {
   transform: translateY(-1px);
 }
 
-.btn-transition:active {
+.btn:active {
   transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.btn-primary:hover {
+  background-color: hsl(168 76% 32%);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.btn-outline:hover {
+  background-color: hsl(var(--muted));
+  border-color: hsl(0 0% 80%);
+}
+
+/* Section spacing */
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Teal accent color utilities */
+.text-teal {
+  color: hsl(var(--primary));
+}
+
+.bg-teal {
+  background-color: hsl(var(--primary));
+}
+
+.border-teal {
+  border-color: hsl(var(--primary));
 }

@@ -6,30 +6,30 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 border-t border-stone-200">
+    <section id="how-it-works" className="section bg-white">
       <div className="container">
-        {/* Section heading */}
+        {/* Section heading - centered */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[hsl(var(--foreground))]">
             How it works
           </h2>
         </div>
 
-        {/* Steps */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-6 md:gap-12">
+        {/* Steps - centered */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6 lg:gap-12 max-w-3xl mx-auto">
           {steps.map((item, index) => (
-            <div key={index} className="flex items-center gap-4 sm:gap-6">
+            <div key={index} className="flex items-center gap-4 md:gap-6">
               {/* Step circle */}
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-900 text-white font-semibold text-sm shrink-0 btn-transition hover:bg-stone-800">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal text-white font-semibold text-lg shrink-0">
                 {item.step}
               </div>
 
               {/* Step text */}
-              <span className="text-stone-900 font-medium text-lg">{item.text}</span>
+              <span className="text-[hsl(var(--foreground))] font-medium text-lg">{item.text}</span>
 
               {/* Connector line (not after last) */}
               {index < steps.length - 1 && (
-                <div className="hidden sm:block w-12 md:w-20 h-px bg-stone-300" />
+                <div className="hidden md:block w-16 lg:w-24 h-px bg-teal/30" />
               )}
             </div>
           ))}
