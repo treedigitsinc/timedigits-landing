@@ -1,38 +1,47 @@
-import { Check, Sparkles } from 'lucide-react'
+import { Check, Sparkles, Users } from 'lucide-react'
 
 const plans = [
   {
-    name: 'Individual',
+    name: 'Solo',
     price: 'Free',
     period: 'forever',
-    description: 'Perfect for freelancers and solo professionals',
+    description: 'Everything you need to track your time, no strings attached',
     features: [
       'Unlimited time tracking',
       'Unlimited projects',
-      'Weekly reports & dashboards',
-      'Export to CSV',
-      'Local data storage',
+      'Full history forever',
+      'All reports & dashboards',
+      'Export to CSV & PDF',
+      'Cloud backup',
       'Works offline'
     ],
-    cta: 'Start Free',
+    cta: 'Start Free Forever',
     popular: false
   },
   {
     name: 'Team',
-    price: '$1',
-    period: 'per user / month',
+    price: '$5',
+    period: 'month',
     description: 'For teams that want to track time together',
     features: [
-      'Everything in Individual',
-      'Team member management',
-      'Shared projects',
-      'Cloud sync across devices',
-      'Team reports & analytics',
+      'Everything in Solo',
+      '5 team members included',
+      'Shared team workspace',
+      'Team dashboard & analytics',
+      'Combined team reports',
+      'Real-time sync across devices',
       'Priority support'
     ],
-    cta: 'Start Free Trial',
+    additionalInfo: '+$1/month per extra member',
+    cta: 'Start Team Trial',
     popular: true
   }
+]
+
+const comparison = [
+  { competitor: 'Toggl', price: '$45/mo', savings: '89%' },
+  { competitor: 'Harvest', price: '$54/mo', savings: '91%' },
+  { competitor: 'Clockify Pro', price: '$40/mo', savings: '88%' },
 ]
 
 export function Pricing() {
@@ -47,9 +56,9 @@ export function Pricing() {
             <span className="gradient-text">pricing</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            No hidden fees. No per-feature charges. No enterprise sales calls.
+            Free for individuals. <span className="font-semibold text-emerald-600">$5/month</span> for your whole team.
             <br />
-            Just two plans that make sense.
+            Not per seat. Not per feature. Just $5.
           </p>
         </div>
 
@@ -69,7 +78,7 @@ export function Pricing() {
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="bg-emerald-500 text-white px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                     <Sparkles className="w-4 h-4" />
-                    Most Popular
+                    Best Value
                   </span>
                 </div>
               )}
@@ -84,6 +93,12 @@ export function Pricing() {
                 </div>
                 {plan.price === 'Free' && (
                   <span className="text-gray-500">{plan.period}</span>
+                )}
+                {plan.additionalInfo && (
+                  <div className="mt-2 inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm">
+                    <Users className="w-4 h-4" />
+                    {plan.additionalInfo}
+                  </div>
                 )}
                 <p className="text-gray-600 mt-4">{plan.description}</p>
               </div>
@@ -110,10 +125,33 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* FAQ / Trust */}
-        <div className="mt-16 text-center">
+        {/* Competitor Comparison */}
+        <div className="mt-16 max-w-2xl mx-auto">
+          <h3 className="text-center text-lg font-semibold text-gray-900 mb-6">
+            See how much you save (5-person team)
+          </h3>
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <div className="grid grid-cols-4 gap-4 p-4 bg-gray-50 border-b border-gray-200 text-sm font-medium text-gray-600">
+              <div>Tool</div>
+              <div>Their Price</div>
+              <div>TimeDigits</div>
+              <div>You Save</div>
+            </div>
+            {comparison.map((item, index) => (
+              <div key={index} className="grid grid-cols-4 gap-4 p-4 border-b border-gray-100 last:border-0">
+                <div className="font-medium text-gray-900">{item.competitor}</div>
+                <div className="text-gray-600">{item.price}</div>
+                <div className="text-emerald-600 font-semibold">$5/mo</div>
+                <div className="text-emerald-600 font-bold">{item.savings}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Trust */}
+        <div className="mt-12 text-center">
           <p className="text-gray-600">
-            <span className="font-semibold">No credit card required.</span> Start free, upgrade when you're ready.
+            <span className="font-semibold">No credit card required.</span> Free means free. Teams can trial for 14 days.
           </p>
         </div>
       </div>

@@ -20,8 +20,9 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            The simplest time tracker ever built. Free for individuals,
-            just <span className="font-semibold text-emerald-600">$1/month</span> per user for teams.
+            The simplest time tracker ever built. Free forever for individuals.
+            <br />
+            <span className="font-semibold text-emerald-600">$5/month</span> for your whole team — not per seat.
           </p>
 
           {/* CTA Buttons */}
