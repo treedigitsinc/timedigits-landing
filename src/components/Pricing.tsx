@@ -53,7 +53,7 @@ export function Pricing() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Simple pricing
@@ -67,7 +67,7 @@ export function Pricing() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto pt-2"
+          className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto"
         >
           {plans.map((plan, index) => (
             <motion.div
