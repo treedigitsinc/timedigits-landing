@@ -1,7 +1,5 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
-import { fadeUp, staggerContainer } from '../lib/animations'
 
 const plans = [
   {
@@ -42,37 +40,22 @@ const comparison = [
 ]
 
 export function Pricing() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-
   return (
     <section id="pricing" className="py-24 border-t">
       <div className="container">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Simple pricing
           </h2>
           <p className="mt-4 text-zinc-600">
             No per-seat tiers. No hidden costs. No enterprise pricing.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto"
-        >
+        <div className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              variants={fadeUp}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className={`relative rounded-xl p-8 ${
                 plan.primary
@@ -81,14 +64,9 @@ export function Pricing() {
               }`}
             >
               {plan.primary && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.4 }}
-                  className="inline-block bg-zinc-700 text-white text-xs font-medium px-3 py-1 rounded-full mb-4"
-                >
+                <div className="inline-block bg-zinc-700 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
                   Most Popular
-                </motion.div>
+                </div>
               )}
 
               <h3 className={`font-semibold text-lg ${plan.primary ? 'text-white' : 'text-zinc-900'}`}>
@@ -134,15 +112,10 @@ export function Pricing() {
               </motion.a>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Comparison */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-16 max-w-md mx-auto"
-        >
+        <div className="mt-16 max-w-md mx-auto">
           <p className="text-center text-sm font-medium text-zinc-900 mb-4">
             Compare to competitors
           </p>
@@ -160,16 +133,11 @@ export function Pricing() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center text-sm text-zinc-500 mt-8"
-        >
+        <p className="text-center text-sm text-zinc-500 mt-8">
           No credit card required. Cancel anytime.
-        </motion.p>
+        </p>
       </div>
     </section>
   )

@@ -1,11 +1,7 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 export function CTA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.5 })
-
   return (
     <section className="py-24 border-t bg-zinc-950 relative overflow-hidden">
       {/* Subtle animated gradient */}
@@ -22,29 +18,15 @@ export function CTA() {
       />
 
       <div className="container relative">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center max-w-2xl mx-auto"
-        >
+        <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Ready to start?
           </h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-4 text-lg text-zinc-400"
-          >
+          <p className="mt-4 text-lg text-zinc-400">
             Join thousands who track their time the simple way.
-          </motion.p>
+          </p>
           <motion.a
             href="#pricing"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-sm font-semibold text-zinc-900 shadow-lg shadow-white/20"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -52,7 +34,7 @@ export function CTA() {
             Start Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </motion.a>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -31,7 +31,7 @@ export function Hero() {
           >
             Track time.
             <br />
-            <span className="text-zinc-500">That's it.</span>
+            <span className="text-zinc-600">That's it.</span>
           </motion.h1>
 
           {/* Subheadline */}
