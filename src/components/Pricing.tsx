@@ -76,8 +76,8 @@ export function Pricing() {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className={`relative rounded-xl p-8 ${
                 plan.primary
-                  ? 'bg-zinc-900 text-white ring-1 ring-zinc-900'
-                  : 'bg-white border border-zinc-200'
+                  ? 'bg-zinc-900 text-white ring-1 ring-zinc-900 mt-4'
+                  : 'bg-white border border-zinc-200 shadow-sm'
               }`}
             >
               {plan.primary && (
@@ -85,7 +85,7 @@ export function Pricing() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.4 }}
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-700 text-white text-xs font-medium px-3 py-1 rounded-full"
+                  className="absolute -top-4 left-1/2 -translate-x-1/2 bg-zinc-700 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg"
                 >
                   Most Popular
                 </motion.div>

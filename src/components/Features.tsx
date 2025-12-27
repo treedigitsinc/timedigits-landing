@@ -70,7 +70,7 @@ export function Features() {
               variants={fadeUp}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="group p-6 rounded-lg bg-white border border-zinc-100 hover:border-zinc-200 hover:shadow-lg hover:shadow-zinc-100 transition-shadow"
+              className="group p-6 rounded-xl bg-white border border-zinc-200 shadow-sm hover:border-zinc-300 hover:shadow-md transition-all"
             >
               <motion.div
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 group-hover:bg-zinc-900 transition-colors"
