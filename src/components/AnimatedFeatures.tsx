@@ -79,6 +79,7 @@ const features = [
     icon: TeamIcon,
     gradient: "from-purple-500 to-purple-900",
     delay: 0,
+    teamOnly: true,
   },
   {
     id: "reports",
@@ -87,6 +88,7 @@ const features = [
     icon: ReportIcon,
     gradient: "from-teal-500 to-teal-900",
     delay: 0.1,
+    teamOnly: false,
   },
   {
     id: "csv",
@@ -95,6 +97,7 @@ const features = [
     icon: CsvIcon,
     gradient: "from-blue-500 to-blue-900",
     delay: 0.2,
+    teamOnly: false,
   },
   {
     id: "invoices",
@@ -103,6 +106,7 @@ const features = [
     icon: InvoiceIcon,
     gradient: "from-emerald-500 to-emerald-900",
     delay: 0.3,
+    teamOnly: true,
   },
   {
     id: "api",
@@ -111,6 +115,7 @@ const features = [
     icon: ApiIcon,
     gradient: "from-orange-500 to-orange-900",
     delay: 0.4,
+    teamOnly: true,
   },
   {
     id: "mcp",
@@ -119,6 +124,7 @@ const features = [
     icon: McpIcon,
     gradient: "from-pink-500 to-pink-900",
     delay: 0.5,
+    teamOnly: true,
   },
 ];
 
@@ -154,6 +160,15 @@ function FeatureCard({ feature, isActive, onClick }: FeatureCardProps) {
           />
         )}
       </AnimatePresence>
+
+      {/* Team Only Badge */}
+      {feature.teamOnly && (
+        <div className="absolute top-3 right-3 z-20">
+          <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
+            Team
+          </span>
+        </div>
+      )}
 
       <div className="relative z-10">
         <div className={cn(

@@ -33,7 +33,7 @@ export function Header() {
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 group">
-          <Logo className="text-white group-hover:scale-110 transition-transform duration-300" size={32} />
+          <Logo className="group-hover:scale-110 transition-transform duration-300" size={32} variant="light" />
           <span className="text-xl font-bold tracking-tight text-white">
             timedigits
           </span>
@@ -61,7 +61,7 @@ export function Header() {
             Sign in
           </a>
           <a
-            href="https://timedigits.vercel.app/signup"
+            href="https://timedigits.vercel.app/login"
             className="bg-white text-black hover:bg-zinc-200 transition-colors px-5 py-2 rounded-full text-sm font-bold"
           >
             Get Started
@@ -100,7 +100,7 @@ export function Header() {
               Sign in
             </a>
             <a
-              href="https://timedigits.vercel.app/signup"
+              href="https://timedigits.vercel.app/login"
               className="bg-teal-500 text-white py-4 rounded-2xl text-center font-bold"
             >
               Get Started
