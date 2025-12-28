@@ -1,7 +1,6 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { LogoCloud } from './components/LogoCloud'
-import { Features } from './components/Features'
+import { AnimatedFeatures } from './components/AnimatedFeatures'
 import { HowItWorks } from './components/HowItWorks'
 import { Pricing } from './components/Pricing'
 import { FAQ } from './components/FAQ'
@@ -14,8 +13,7 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <LogoCloud />
-        <Features />
+        <AnimatedFeatures />
         <HowItWorks />
         <Pricing />
         <FAQ />
