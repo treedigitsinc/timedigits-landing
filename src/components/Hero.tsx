@@ -1,6 +1,6 @@
 "use client";
 import { BackgroundBeams } from "./ui/background-beams";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { RotatingText } from "./ui/rotating-text";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { InteractiveTimer } from "./InteractiveTimer";
 import { ArrowRight, CaretDown } from "@phosphor-icons/react";
@@ -20,7 +20,17 @@ export function Hero() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-              <TextGenerateEffect words="Track time. That's it." />
+              <RotatingText
+                words={[
+                  { text: "Track", color: "text-teal-400" },      // Core - brand color
+                  { text: "Report", color: "text-teal-400" },     // Live Reports - teal
+                  { text: "Bill", color: "text-emerald-400" },    // Create Invoices - emerald
+                  { text: "Export", color: "text-blue-400" },     // Export CSV - blue
+                  { text: "Automate", color: "text-pink-400" },   // MCP Server - pink
+                ]}
+                suffix="time."
+                interval={2500}
+              />
             </h1>
             
             <p className="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
