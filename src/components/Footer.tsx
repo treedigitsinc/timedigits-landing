@@ -16,7 +16,7 @@ export function Footer() {
               </span>
             </a>
             <p className="text-zinc-500 text-sm leading-relaxed">
-              The cheapest time tracker. Free forever.
+              track time. bill time.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-zinc-600 text-xs">
           <p>© 2025 timedigits. All rights reserved.</p>
-          <p>The cheapest time tracker. Free forever.</p>
+          <p>track time. bill time.</p>
         </div>
       </div>
     </footer>

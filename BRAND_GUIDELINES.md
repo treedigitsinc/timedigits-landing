@@ -1,7 +1,7 @@
 # timedigits Brand Guidelines
 
-**Version:** 1.0
-**Last Updated:** December 27, 2025
+**Version:** 1.1
+**Last Updated:** December 29, 2025
 **Source:** Official brand guide from `/timedigits/brand/timedigits-brand-guide.png`
 
 ---
@@ -10,7 +10,7 @@
 
 This document defines the visual identity and brand standards for **timedigits**, a simple time tracking application. The brand embodies honesty, minimalism, and a refreshing approach to time tracking.
 
-**Tagline:** "The cheapest time tracker. Free forever."
+**Tagline:** "track time. bill time."
 
 ---
 
@@ -296,10 +296,9 @@ import { Logo, FullLogo } from './components/Logo';
 
 ### Key Messages
 
-1. "The cheapest time tracker. Free forever."
-2. "The cheapest time tracker you'll find."
-3. "Free forever for you. $1/user for your team. Period."
-4. "90% cheaper than Toggl, Harvest, Timely."
+1. "track time. bill time."
+2. "Free forever for you. $1/user for your team."
+3. "90% cheaper than Toggl, Harvest, Timely."
 
 ### Writing Style
 

@@ -22,11 +22,11 @@ export function Hero() {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
               <RotatingText
                 words={[
-                  { text: "Track", color: "text-teal-400" },      // Core - brand color
-                  { text: "Report", color: "text-teal-400" },     // Live Reports - teal
-                  { text: "Bill", color: "text-emerald-400" },    // Create Invoices - emerald
-                  { text: "Export", color: "text-blue-400" },     // Export CSV - blue
-                  { text: "Automate", color: "text-pink-400" },   // MCP Server - pink
+                  { text: "Track", color: "text-teal-400" },
+                  { text: "Report", color: "text-teal-400" },
+                  { text: "Bill", color: "text-emerald-400" },
+                  { text: "Export", color: "text-blue-400" },
+                  { text: "Automate", color: "text-pink-400" },
                 ]}
                 suffix="time."
                 interval={2500}
@@ -34,8 +34,8 @@ export function Hero() {
             </h1>
             
             <p className="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              <span className="text-white font-semibold">The cheapest time tracker you'll find.</span>{" "}
-              Free forever for you. $1/user for your team. Period.
+              <span className="text-white font-semibold">track time. bill time.</span>{" "}
+              Free forever for you. $1/user for your team.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

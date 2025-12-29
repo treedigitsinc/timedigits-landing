@@ -18,7 +18,7 @@ export function About() {
       <main className="py-16">
         <div className="container max-w-3xl">
           <h1 className="text-4xl font-bold text-white mb-4">About timedigits</h1>
-          <p className="text-xl text-teal-400 mb-12">The cheapest time tracker. Free forever.</p>
+          <p className="text-xl text-teal-400 mb-12">track time. bill time.</p>
 
           <div className="space-y-12">
             {/* Hero statement */}
