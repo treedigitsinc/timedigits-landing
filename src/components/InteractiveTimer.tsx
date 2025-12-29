@@ -28,13 +28,15 @@ export function InteractiveTimer() {
   const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
 
   useEffect(() => {
-    let interval: any;
+    let interval: ReturnType<typeof setInterval> | undefined;
     if (isRunning) {
       interval = setInterval(() => {
         setSeconds((s) => s + 1);
       }, 1000);
     }
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [isRunning]);
 
   const formatTime = (totalSeconds: number) => {
