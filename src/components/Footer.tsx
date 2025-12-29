@@ -15,8 +15,7 @@ export function Footer() {
               </span>
             </a>
             <p className="text-zinc-500 text-sm leading-relaxed">
-              The simplest time tracking tool for individuals and teams. 
-              Built for speed, privacy, and honesty.
+              Simple time tracking that works.
             </p>
           </div>
 
