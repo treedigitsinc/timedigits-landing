@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-zinc-600 text-xs">
           <p>© 2025 timedigits. All rights reserved.</p>
-          <p>Track time. That's it.</p>
+          <p>Simple time tracking that works.</p>
         </div>
       </div>
     </footer>

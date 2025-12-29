@@ -296,7 +296,7 @@ import { Logo, FullLogo } from './components/Logo';
 
 ### Key Messages
 
-1. "Track time. That's it."
+1. "Simple time tracking that works."
 2. "Free for you. $1 for your team."
 3. "No tiers, no tricks, no enterprise pricing."
 4. "90% cheaper than Toggl, Harvest, Timely."
