@@ -153,19 +153,33 @@
     }
     </script>
 
-    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your actual ID) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    -->
+    <!-- Google Analytics loaded via React component (src/components/Analytics.tsx) -->
+    <!-- Set VITE_GA_MEASUREMENT_ID environment variable to enable -->
+
+    <!-- Preload critical resources for better Core Web Vitals -->
+    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml">
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   </head>
   <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-500 focus:text-white focus:rounded-lg">
+      Skip to main content
+    </a>
+
     <div id="root"></div>
+
+    <!-- Fallback content for users without JavaScript (helps with SEO crawling) -->
+    <noscript>
+      <div style="padding: 40px; text-align: center; font-family: system-ui, sans-serif; background: #18181B; color: white; min-height: 100vh;">
+        <h1 style="font-size: 2rem; margin-bottom: 1rem;">timedigits - Simple Time Tracking</h1>
+        <p style="color: #a1a1aa; margin-bottom: 2rem;">Track your time effortlessly. Free for individuals, just $1/month per user for teams.</p>
+        <p style="color: #71717a;">Please enable JavaScript to use this application.</p>
+        <a href="https://timedigits.vercel.app/login" style="display: inline-block; margin-top: 1rem; padding: 12px 24px; background: #14B8A6; color: white; text-decoration: none; border-radius: 8px;">Get Started</a>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

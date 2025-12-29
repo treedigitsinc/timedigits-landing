@@ -11,7 +11,7 @@ export function Landing() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <AnimatedFeatures />
         <HowItWorks />
