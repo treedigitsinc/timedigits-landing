@@ -457,10 +457,10 @@ export function AnimatedFeatures() {
             Powerful Features
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Everything connects
+            Track. Report. Invoice. Integrate.
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            From solo tracking to enterprise integrations. Every feature works seamlessly with your timer.
+            One platform. Zero friction.
           </p>
         </motion.div>
 
