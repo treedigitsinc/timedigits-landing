@@ -2,20 +2,167 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Primary Meta Tags -->
+    <title>timedigits - Simple Time Tracking That Works</title>
+    <meta name="title" content="timedigits - Simple Time Tracking That Works" />
+    <meta name="description" content="Track your time effortlessly. Free for individuals, just $1/month per user for teams. No credit card required. Works offline." />
+    <meta name="keywords" content="time tracking, time tracker, productivity, project management, team time tracking, free time tracker, simple time tracking" />
+    <meta name="author" content="timedigits" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14B8A6" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://timedigits.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://timedigits.com/" />
+    <meta property="og:title" content="timedigits - Simple Time Tracking That Works" />
+    <meta property="og:description" content="Track your time effortlessly. Free for individuals, just $1/month per user for teams. No credit card required." />
+    <meta property="og:image" content="https://timedigits.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="timedigits" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://timedigits.com/" />
+    <meta name="twitter:title" content="timedigits - Simple Time Tracking That Works" />
+    <meta name="twitter:description" content="Track your time effortlessly. Free for individuals, just $1/month per user for teams. No credit card required." />
+    <meta name="twitter:image" content="https://timedigits.com/og-image.png" />
+    <meta name="twitter:site" content="@treedigitsinc" />
+    <meta name="twitter:creator" content="@treedigitsinc" />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#14B8A6" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>timedigits - Simple Time Tracking</title>
-    <meta name="description" content="Track your time effortlessly. Free for individuals, just $1/month per user for teams." />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Satoshi from Fontshare + JetBrains Mono -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://timedigits.com/#organization",
+          "name": "timedigits",
+          "url": "https://timedigits.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://timedigits.com/android-chrome-512x512.png",
+            "width": 512,
+            "height": 512
+          },
+          "sameAs": [
+            "https://twitter.com/treedigitsinc",
+            "https://github.com/treedigitsinc/timedigits"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://timedigits.com/#website",
+          "url": "https://timedigits.com",
+          "name": "timedigits",
+          "publisher": {
+            "@id": "https://timedigits.com/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://timedigits.com/#software",
+          "name": "timedigits",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web, iOS, Android",
+          "description": "Simple time tracking that works. Track your time effortlessly with unlimited projects, history, and exports.",
+          "url": "https://timedigits.com",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Free Plan",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Free forever for individuals"
+            },
+            {
+              "@type": "Offer",
+              "name": "Team Plan",
+              "price": "5",
+              "priceCurrency": "USD",
+              "description": "$5/month for up to 5 team members, $1/month per additional user"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://timedigits.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is it really free for individuals?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, absolutely. We believe everyone should have access to simple time tracking. All core features like unlimited projects, history, and exports are free forever for solo users."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the team pricing work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Teams pay a flat fee of $5/month which includes up to 5 members. If you have more than 5 members, it's just $1/month for each additional person. No complex tiers or enterprise traps."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I export my data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can export your data to CSV at any time. Your data belongs to you, and we make it easy to take it with you for invoicing or accounting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it work offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! timedigits is built to work offline. Your timers will keep running and your data will sync automatically once you're back online."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your actual ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
   </head>
   <body>
     <div id="root"></div>

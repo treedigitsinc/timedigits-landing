@@ -1,26 +1,19 @@
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { AnimatedFeatures } from './components/AnimatedFeatures'
-import { HowItWorks } from './components/HowItWorks'
-import { Pricing } from './components/Pricing'
-import { FAQ } from './components/FAQ'
-import { CTA } from './components/CTA'
-import { Footer } from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Landing } from './pages/Landing'
+import { Privacy } from './pages/Privacy'
+import { Terms } from './pages/Terms'
 
 function App() {
   return (
-    <div className="min-h-screen bg-zinc-950">
-      <Header />
-      <main>
-        <Hero />
-        <AnimatedFeatures />
-        <HowItWorks />
-        <Pricing />
-        <FAQ />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-zinc-950">
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 

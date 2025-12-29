@@ -1,5 +1,6 @@
 "use client";
 import { GithubLogo, TwitterLogo } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -32,8 +33,8 @@ export function Footer() {
               <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-widest">Company</h4>
               <ul className="space-y-4 text-sm text-zinc-500">
                 <li><a href="#how-it-works" className="hover:text-teal-400 transition-colors">About</a></li>
-                <li><a href="/privacy" className="hover:text-teal-400 transition-colors">Privacy</a></li>
-                <li><a href="/terms" className="hover:text-teal-400 transition-colors">Terms</a></li>
+                <li><Link to="/privacy" className="hover:text-teal-400 transition-colors">Privacy</Link></li>
+                <li><Link to="/terms" className="hover:text-teal-400 transition-colors">Terms</Link></li>
               </ul>
             </div>
             <div>

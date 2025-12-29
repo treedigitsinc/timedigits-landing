@@ -1,0 +1,11 @@
+# robots.txt for timedigits.com
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://timedigits.com/sitemap.xml
+
+# Crawl-delay (optional, be kind to the server)
+Crawl-delay: 1
