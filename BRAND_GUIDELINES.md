@@ -10,7 +10,7 @@
 
 This document defines the visual identity and brand standards for **timedigits**, a simple time tracking application. The brand embodies honesty, minimalism, and a refreshing approach to time tracking.
 
-**Tagline:** "Simple time tracking that works."
+**Tagline:** "The cheapest time tracker. Free forever."
 
 ---
 
@@ -296,9 +296,9 @@ import { Logo, FullLogo } from './components/Logo';
 
 ### Key Messages
 
-1. "Simple time tracking that works."
-2. "Free for you. $1 for your team."
-3. "No tiers, no tricks, no enterprise pricing."
+1. "The cheapest time tracker. Free forever."
+2. "The cheapest time tracker you'll find."
+3. "Free forever for you. $1/user for your team. Period."
 4. "90% cheaper than Toggl, Harvest, Timely."
 
 ### Writing Style

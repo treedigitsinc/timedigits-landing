@@ -34,8 +34,8 @@ export function Hero() {
             </h1>
             
             <p className="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              Free forever for you. <span className="text-white font-semibold">$1/user</span> for your team.
-              No tiers. No tricks. No enterprise pricing.
+              <span className="text-white font-semibold">The cheapest time tracker you'll find.</span>{" "}
+              Free forever for you. $1/user for your team. Period.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

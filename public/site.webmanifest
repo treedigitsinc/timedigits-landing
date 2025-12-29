@@ -1,7 +1,7 @@
 {
   "name": "timedigits",
   "short_name": "timedigits",
-  "description": "Track time. That's it.",
+  "description": "The cheapest time tracker. Free forever.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#18181B",

@@ -35,13 +35,13 @@ const svgImage = `
   <text x="600" y="340" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#FFFFFF">timedigits</text>
 
   <!-- Tagline -->
-  <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="400" fill="#A1A1AA">Simple time tracking that works.</text>
+  <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#14B8A6">The cheapest time tracker you'll find.</text>
 
   <!-- Value props -->
   <g transform="translate(600, 480)" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24">
-    <text fill="#14B8A6">Free for individuals</text>
+    <text fill="#FFFFFF">Free forever for you</text>
     <text x="0" y="40" fill="#71717A">•</text>
-    <text x="0" y="80" fill="#14B8A6">$1/month per team member</text>
+    <text x="0" y="80" fill="#FFFFFF">$1/user for your team</text>
   </g>
 
   <!-- Teal accent line at bottom -->
