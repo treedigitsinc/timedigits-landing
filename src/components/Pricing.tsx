@@ -1,5 +1,6 @@
 "use client";
-import { Check, Sparkle } from "@phosphor-icons/react";
+import { Check, Sparkle, ArrowRight } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { cn } from "../lib/utils";
 
@@ -154,9 +155,19 @@ export function Pricing() {
             </div>
           </div>
           
-          <p className="text-center text-zinc-600 text-xs mt-8">
+          <p className="text-center text-zinc-600 text-xs mt-8 mb-6">
             * Competitor pricing based on public monthly pro plans as of Dec 2025.
           </p>
+
+          <div className="text-center">
+            <Link
+              to="/compare"
+              className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 font-medium transition-colors"
+            >
+              See full comparison of 100+ tools
+              <ArrowRight size={16} weight="bold" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
