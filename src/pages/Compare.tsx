@@ -4,6 +4,22 @@ import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { cn } from "../lib/utils";
 
+// Helper function to format price display
+function formatPrice(price: number): string {
+  if (Number.isInteger(price)) {
+    return `$${price}`;
+  }
+  return `$${price.toFixed(2)}`;
+}
+
+// Helper function to format team cost
+function formatTeamCost(cost: number): string {
+  if (Number.isInteger(cost)) {
+    return `$${cost}`;
+  }
+  return `$${Math.round(cost)}`;
+}
+
 // Comprehensive competitor data based on research of 100+ tools
 const competitors = [
   // Tier 1: Direct competitors
@@ -11,11 +27,11 @@ const competitors = [
   { name: "Clockify", price: 5.49, hasFree: true, freeUsers: "unlimited", invoicing: true, billable: true, clients: true, integrations: 80, gps: true, screenshots: true, tier: "budget" },
   { name: "Harvest", price: 11, hasFree: true, freeUsers: 1, invoicing: true, billable: true, clients: true, integrations: 50, gps: false, screenshots: false, tier: "mid" },
   { name: "My Hours", price: 9, hasFree: true, freeUsers: 5, invoicing: false, billable: true, clients: true, integrations: 20, gps: false, screenshots: false, tier: "mid" },
-  { name: "Hubstaff", price: 4.99, hasFree: false, freeUsers: 0, invoicing: true, billable: true, clients: true, integrations: 30, gps: true, screenshots: true, tier: "mid" },
-  { name: "Time Doctor", price: 6.70, hasFree: false, freeUsers: 0, invoicing: false, billable: true, clients: false, integrations: 60, gps: false, screenshots: true, tier: "mid" },
-  { name: "Paymo", price: 3.90, hasFree: true, freeUsers: 1, invoicing: true, billable: true, clients: true, integrations: 20, gps: false, screenshots: false, tier: "budget" },
+  { name: "Hubstaff", price: 5, hasFree: false, freeUsers: 0, invoicing: true, billable: true, clients: true, integrations: 30, gps: true, screenshots: true, tier: "mid" },
+  { name: "Time Doctor", price: 7, hasFree: false, freeUsers: 0, invoicing: false, billable: true, clients: false, integrations: 60, gps: false, screenshots: true, tier: "mid" },
+  { name: "Paymo", price: 4, hasFree: true, freeUsers: 1, invoicing: true, billable: true, clients: true, integrations: 20, gps: false, screenshots: false, tier: "budget" },
   { name: "Everhour", price: 8.50, hasFree: true, freeUsers: 5, invoicing: true, billable: true, clients: true, integrations: 40, gps: false, screenshots: false, tier: "mid" },
-  { name: "TimeCamp", price: 3.99, hasFree: true, freeUsers: "unlimited", invoicing: true, billable: true, clients: true, integrations: 100, gps: false, screenshots: false, tier: "budget" },
+  { name: "TimeCamp", price: 4, hasFree: true, freeUsers: "unlimited", invoicing: true, billable: true, clients: true, integrations: 100, gps: false, screenshots: false, tier: "budget" },
   { name: "TMetric", price: 5, hasFree: true, freeUsers: 5, invoicing: true, billable: true, clients: true, integrations: 50, gps: false, screenshots: false, tier: "budget" },
   // Enterprise tier
   { name: "QuickBooks Time", price: 8, hasFree: false, freeUsers: 0, invoicing: false, billable: true, clients: false, integrations: 20, gps: true, screenshots: false, tier: "enterprise", basePrice: 20 },
@@ -165,7 +181,7 @@ export function Compare() {
                 </h2>
                 <p className="text-zinc-400 leading-relaxed mb-6">
                   Most time tracking tools start cheap, then hit you with per-user fees that balloon as your team grows.
-                  A 10-person team on Toggl costs $100/month. On Harvest, $120/month. On enterprise tools? $300+/month.
+                  A 10-person team on Toggl costs $100/month. On Harvest, $110/month. On enterprise tools? $300+/month.
                 </p>
                 <p className="text-zinc-400 leading-relaxed">
                   <span className="text-white font-semibold">timedigits costs $10/month for that same team.</span>{" "}
@@ -194,10 +210,10 @@ export function Compare() {
                 <div
                   key={tier.tier}
                   className={cn(
-                    "rounded-2xl p-6 border",
+                    "rounded-2xl p-6 border transition-all duration-300",
                     tier.highlight
-                      ? "glass border-teal-500/30 bg-teal-500/5"
-                      : "bg-zinc-900/50 border-zinc-800"
+                      ? "glass border-teal-500/30 bg-teal-500/5 shadow-[0_0_30px_-10px_rgba(20,184,166,0.3)]"
+                      : "bg-zinc-900/50 border-zinc-800 hover:border-zinc-700"
                   )}
                 >
                   {tier.highlight && (
@@ -240,41 +256,77 @@ export function Compare() {
               Real pricing based on public monthly pro plans as of December 2025.
             </p>
 
-            <div className="glass rounded-3xl overflow-hidden border-zinc-800/50 max-w-4xl mx-auto">
-              <div className="grid grid-cols-4 p-6 border-b border-zinc-800/50 text-xs font-mono uppercase tracking-widest text-zinc-500">
-                <div className="col-span-1">Tool</div>
-                <div className="text-center">Per User</div>
-                <div className="text-center">10-Person Team</div>
-                <div className="text-right">Your Savings</div>
+            <div className="max-w-4xl mx-auto">
+              {/* Table header */}
+              <div className="glass rounded-t-3xl border border-zinc-800/50 overflow-hidden">
+                <div className="grid grid-cols-12 p-5 bg-zinc-900/80 border-b border-zinc-800/50">
+                  <div className="col-span-4 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                    Tool
+                  </div>
+                  <div className="col-span-3 text-center text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                    Per User
+                  </div>
+                  <div className="col-span-3 text-center text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                    Team Cost
+                  </div>
+                  <div className="col-span-2 text-right text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                    Savings
+                  </div>
+                </div>
+
+                {/* Table rows */}
+                {competitors.slice(0, 10).map((comp, i) => {
+                  const teamCost = comp.basePrice ? comp.basePrice + (comp.price * 10) : comp.price * 10;
+                  const savings = Math.round(((teamCost - 10) / teamCost) * 100);
+                  return (
+                    <div
+                      key={comp.name}
+                      className={cn(
+                        "grid grid-cols-12 p-5 items-center transition-colors hover:bg-zinc-900/30",
+                        i !== 9 && "border-b border-zinc-800/30"
+                      )}
+                    >
+                      <div className="col-span-4 font-medium text-white">
+                        {comp.name}
+                      </div>
+                      <div className="col-span-3 text-center">
+                        <span className="text-zinc-400">{formatPrice(comp.price)}</span>
+                        <span className="text-zinc-600 text-sm">/user</span>
+                      </div>
+                      <div className="col-span-3 text-center">
+                        <span className="text-zinc-500 line-through">{formatTeamCost(teamCost)}/mo</span>
+                      </div>
+                      <div className="col-span-2 text-right">
+                        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-teal-500/10 text-teal-400 text-sm font-semibold">
+                          {savings}%
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              {competitors.slice(0, 10).map((comp, i) => {
-                const teamCost = comp.basePrice ? comp.basePrice + (comp.price * 10) : comp.price * 10;
-                const savings = Math.round(((teamCost - 10) / teamCost) * 100);
-                return (
-                  <div
-                    key={comp.name}
-                    className={cn(
-                      "grid grid-cols-4 p-6 text-sm items-center",
-                      i !== 9 && "border-b border-zinc-800/50"
-                    )}
-                  >
-                    <div className="font-medium text-white">{comp.name}</div>
-                    <div className="text-center text-zinc-400">${comp.price}/user</div>
-                    <div className="text-center text-zinc-400 line-through">${teamCost}/mo</div>
-                    <div className="text-right text-teal-400 font-mono font-bold">Save {savings}%</div>
+              {/* timedigits row - highlighted */}
+              <div className="glass rounded-b-3xl border border-t-0 border-teal-500/30 bg-gradient-to-r from-teal-500/10 to-teal-500/5 overflow-hidden">
+                <div className="grid grid-cols-12 p-5 items-center">
+                  <div className="col-span-4 font-bold text-teal-400 flex items-center gap-2">
+                    <Logo size={22} variant="light" />
+                    timedigits
                   </div>
-                );
-              })}
-
-              <div className="grid grid-cols-4 p-6 bg-teal-500/10 items-center">
-                <div className="font-bold text-teal-400 flex items-center gap-2">
-                  <Logo size={20} variant="light" />
-                  timedigits
+                  <div className="col-span-3 text-center">
+                    <span className="text-teal-400 font-semibold">$1</span>
+                    <span className="text-teal-500/70 text-sm">/user</span>
+                  </div>
+                  <div className="col-span-3 text-center">
+                    <span className="text-teal-400 font-bold text-lg">$10/mo</span>
+                  </div>
+                  <div className="col-span-2 text-right">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-teal-500 text-white text-sm font-bold">
+                      <Trophy size={14} weight="fill" />
+                      Best
+                    </span>
+                  </div>
                 </div>
-                <div className="text-center text-teal-400">$1/user</div>
-                <div className="text-center text-teal-400 font-bold">$10/mo</div>
-                <div className="text-right text-teal-400 font-mono font-bold">—</div>
               </div>
             </div>
           </section>
@@ -290,25 +342,31 @@ export function Compare() {
 
             <div className="space-y-8 max-w-4xl mx-auto">
               {featureCategories.map((category) => (
-                <div key={category.name} className="glass rounded-2xl overflow-hidden">
-                  <div className="p-4 border-b border-zinc-800/50 bg-zinc-900/50">
+                <div key={category.name} className="glass rounded-2xl overflow-hidden border border-zinc-800/50">
+                  <div className="p-5 border-b border-zinc-800/50 bg-zinc-900/50">
                     <h3 className="font-bold text-white">{category.name}</h3>
                   </div>
-                  <div className="divide-y divide-zinc-800/50">
+                  <div className="divide-y divide-zinc-800/30">
                     {category.features.map((feature) => (
-                      <div key={feature.name} className="grid grid-cols-3 p-4 items-center">
-                        <div className="text-zinc-300 text-sm">{feature.name}</div>
-                        <div className="text-center">
+                      <div key={feature.name} className="grid grid-cols-12 p-4 items-center hover:bg-zinc-900/20 transition-colors">
+                        <div className="col-span-5 text-zinc-300 text-sm">{feature.name}</div>
+                        <div className="col-span-3 text-center">
                           {feature.timedigits === true ? (
-                            <Check size={20} className="text-teal-400 mx-auto" weight="bold" />
+                            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-teal-500/20">
+                              <Check size={16} className="text-teal-400" weight="bold" />
+                            </span>
                           ) : feature.timedigits === "soon" ? (
-                            <span className="text-xs text-amber-400 font-medium">Soon</span>
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-xs font-medium">
+                              Soon
+                            </span>
                           ) : (
-                            <X size={20} className="text-zinc-600 mx-auto" />
+                            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-zinc-800/50">
+                              <X size={16} className="text-zinc-600" />
+                            </span>
                           )}
                         </div>
-                        <div className="text-right text-zinc-500 text-sm">
-                          {feature.common}% of competitors
+                        <div className="col-span-4 text-right">
+                          <span className="text-zinc-500 text-sm">{feature.common}% of competitors</span>
                         </div>
                       </div>
                     ))}
@@ -325,7 +383,7 @@ export function Compare() {
 
           {/* What We Don't Do */}
           <section className="mb-20">
-            <div className="glass rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+            <div className="glass rounded-3xl p-8 md:p-12 max-w-4xl mx-auto border border-zinc-800/50">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
                 What we intentionally skip
               </h2>
@@ -340,11 +398,13 @@ export function Compare() {
                   { feature: "Mouse movement tracking", reason: "Measures presence, not productivity" },
                   { feature: "Webcam monitoring", reason: "Crosses the line" },
                 ].map((item) => (
-                  <div key={item.feature} className="flex items-start gap-3">
-                    <X size={18} className="text-red-400 mt-0.5 flex-shrink-0" />
+                  <div key={item.feature} className="flex items-start gap-3 p-3 rounded-xl bg-red-500/5 border border-red-500/10">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-500/20 flex-shrink-0 mt-0.5">
+                      <X size={14} className="text-red-400" weight="bold" />
+                    </span>
                     <div>
                       <span className="text-white font-medium">{item.feature}</span>
-                      <span className="text-zinc-500 text-sm"> — {item.reason}</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">{item.reason}</p>
                     </div>
                   </div>
                 ))}
@@ -394,10 +454,10 @@ export function Compare() {
                   tools: ["Kimai", "solidtime", "ActivityWatch", "Traggo", "Titra", "Cattr", "Pendulums", "Timestrap"],
                 },
               ].map((group) => (
-                <div key={group.category} className="glass rounded-2xl p-6">
+                <div key={group.category} className="glass rounded-2xl p-6 border border-zinc-800/50 hover:border-zinc-700/50 transition-colors">
                   <group.icon size={24} className="text-teal-400 mb-3" />
                   <h3 className="font-bold text-white mb-4">{group.category}</h3>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1.5">
                     {group.tools.map((tool) => (
                       <li key={tool} className="text-zinc-500 text-sm">{tool}</li>
                     ))}
