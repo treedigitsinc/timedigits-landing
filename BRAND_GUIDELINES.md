@@ -10,7 +10,7 @@
 
 This document defines the visual identity and brand standards for **timedigits**, a simple time tracking application. The brand embodies honesty, minimalism, and a refreshing approach to time tracking.
 
-**Tagline:** "Track time. That's it."
+**Tagline:** "Simple time tracking that works."
 
 ---
 
