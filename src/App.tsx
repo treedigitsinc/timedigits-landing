@@ -17,6 +17,10 @@ import { RemoteTeamTimeTracker } from './pages/RemoteTeamTimeTracker'
 import { ConsultantTimeTracker } from './pages/ConsultantTimeTracker'
 import { DeveloperTimeTracker } from './pages/DeveloperTimeTracker'
 import { LawyerTimeTracker } from './pages/LawyerTimeTracker'
+import { AccountantTimeTracker } from './pages/AccountantTimeTracker'
+import { DesignerTimeTracker } from './pages/DesignerTimeTracker'
+import { ContractorTimeTracker } from './pages/ContractorTimeTracker'
+import { ArchitectTimeTracker } from './pages/ArchitectTimeTracker'
 
 function App() {
   return (
@@ -41,6 +45,10 @@ function App() {
           <Route path="/consultant-time-tracker" element={<ConsultantTimeTracker />} />
           <Route path="/developer-time-tracker" element={<DeveloperTimeTracker />} />
           <Route path="/lawyer-time-tracker" element={<LawyerTimeTracker />} />
+          <Route path="/accountant-time-tracker" element={<AccountantTimeTracker />} />
+          <Route path="/designer-time-tracker" element={<DesignerTimeTracker />} />
+          <Route path="/contractor-time-tracker" element={<ContractorTimeTracker />} />
+          <Route path="/architect-time-tracker" element={<ArchitectTimeTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
