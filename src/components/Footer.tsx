@@ -20,13 +20,21 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-12">
             <div>
               <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-widest">Product</h4>
               <ul className="space-y-4 text-sm text-zinc-500">
                 <li><a href="#features" className="hover:text-teal-400 transition-colors">Features</a></li>
                 <li><a href="#pricing" className="hover:text-teal-400 transition-colors">Pricing</a></li>
+                <li><Link to="/compare" className="hover:text-teal-400 transition-colors">Compare</Link></li>
                 <li><a href="https://timedigits.vercel.app/login" className="hover:text-teal-400 transition-colors">Sign Up</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold text-sm mb-6 uppercase tracking-widest">Resources</h4>
+              <ul className="space-y-4 text-sm text-zinc-500">
+                <li><Link to="/blog" className="hover:text-teal-400 transition-colors">Blog</Link></li>
+                <li><Link to="/faq" className="hover:text-teal-400 transition-colors">FAQ</Link></li>
               </ul>
             </div>
             <div>
