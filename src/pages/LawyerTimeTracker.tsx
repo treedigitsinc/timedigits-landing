@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
+
 const lawyerFeatures = [
   {
     icon: Clock,
@@ -64,6 +67,8 @@ const legalProfessionals = [
 ];
 
 export function LawyerTimeTracker() {
+  useSEO(seoData.lawyer);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

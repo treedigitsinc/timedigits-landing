@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
+
 const consultantFeatures = [
   {
     icon: CurrencyDollar,
@@ -61,6 +64,8 @@ const workflows = [
 ];
 
 export function ConsultantTimeTracker() {
+  useSEO(seoData.consultant);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

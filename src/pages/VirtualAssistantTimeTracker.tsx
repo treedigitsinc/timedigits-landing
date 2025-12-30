@@ -2,6 +2,9 @@ import { ArrowLeft, ArrowRight, Check, Trophy, Headset, Clock, Briefcase, Export
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+import { RelatedPages } from "../components/RelatedPages";
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 const vaFeatures = [
   {
@@ -64,6 +67,8 @@ const vaTaskTypes = [
 ];
 
 export function VirtualAssistantTimeTracker() {
+  useSEO(seoData.virtualAssistant);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

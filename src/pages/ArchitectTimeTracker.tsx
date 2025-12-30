@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
+
 const architectFeatures = [
   {
     icon: Clock,
@@ -64,6 +67,8 @@ const architectTypes = [
 ];
 
 export function ArchitectTimeTracker() {
+  useSEO(seoData.architect);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

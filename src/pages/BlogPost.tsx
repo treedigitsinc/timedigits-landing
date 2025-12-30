@@ -207,38 +207,149 @@ export function BlogPost() {
   );
 }
 
-// Simple content formatter - converts markdown-style content to HTML
+// Comprehensive content formatter - converts markdown to well-formatted HTML
 function formatContent(content: string): string {
-  return content
-    // Headers
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+  // First, extract code blocks to prevent processing their contents
+  const codeBlocks: string[] = [];
+  let processed = content.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) => {
+    const index = codeBlocks.length;
+    const langClass = lang ? ` class="language-${lang}"` : '';
+    codeBlocks.push(`<pre${langClass}><code>${escapeHtml(code.trim())}</code></pre>`);
+    return `%%CODEBLOCK_${index}%%`;
+  });
+
+  // Process tables before splitting paragraphs
+  processed = processed.replace(/(?:^\|.+\|$\n?)+/gm, (tableBlock) => {
+    const lines = tableBlock.trim().split('\n').filter(line => line.trim());
+    if (lines.length < 2) return tableBlock;
+
+    const parseRow = (row: string): string[] => {
+      return row.split('|').slice(1, -1).map(cell => cell.trim());
+    };
+
+    const headerCells = parseRow(lines[0]);
+    const isHeaderSeparator = /^\|[\s-:]+\|$/.test(lines[1]);
+
+    let html = '<div class="overflow-x-auto my-6"><table class="w-full border-collapse">';
+
+    if (isHeaderSeparator) {
+      html += '<thead class="bg-zinc-800"><tr>';
+      headerCells.forEach(cell => {
+        html += `<th class="border border-zinc-700 px-4 py-3 text-left text-zinc-200 font-semibold">${processInlineMarkdown(cell)}</th>`;
+      });
+      html += '</tr></thead><tbody>';
+
+      for (let i = 2; i < lines.length; i++) {
+        const cells = parseRow(lines[i]);
+        html += '<tr class="hover:bg-zinc-800/50">';
+        cells.forEach(cell => {
+          html += `<td class="border border-zinc-700 px-4 py-3 text-zinc-300">${processInlineMarkdown(cell)}</td>`;
+        });
+        html += '</tr>';
+      }
+      html += '</tbody>';
+    } else {
+      html += '<tbody>';
+      lines.forEach(line => {
+        const cells = parseRow(line);
+        html += '<tr class="hover:bg-zinc-800/50">';
+        cells.forEach(cell => {
+          html += `<td class="border border-zinc-700 px-4 py-3 text-zinc-300">${processInlineMarkdown(cell)}</td>`;
+        });
+        html += '</tr>';
+      });
+      html += '</tbody>';
+    }
+
+    html += '</table></div>';
+    return `\n\n${html}\n\n`;
+  });
+
+  // Process blockquotes
+  processed = processed.replace(/^> (.+)$/gm, '<blockquote class="border-l-4 border-teal-500 pl-4 py-2 my-4 text-zinc-400 italic">$1</blockquote>');
+
+  // Process horizontal rules
+  processed = processed.replace(/^---+$/gm, '<hr class="border-zinc-700 my-8" />');
+
+  // Headers
+  processed = processed
+    .replace(/^#### (.+)$/gm, '<h4 class="text-lg font-bold text-white mt-6 mb-3">$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3 class="text-xl font-bold text-white mt-8 mb-4">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-white mt-12 mb-6">$1</h2>');
+
+  // Process inline markdown
+  processed = processInlineMarkdown(processed);
+
+  // Split into blocks and process
+  const blocks = processed.split(/\n\n+/);
+  const result = blocks.map(block => {
+    const trimmed = block.trim();
+
+    // Skip already processed HTML elements
+    if (trimmed.startsWith('<h') ||
+        trimmed.startsWith('<div') ||
+        trimmed.startsWith('<table') ||
+        trimmed.startsWith('<blockquote') ||
+        trimmed.startsWith('<hr') ||
+        trimmed.startsWith('<pre') ||
+        trimmed.startsWith('<ul') ||
+        trimmed.startsWith('<ol') ||
+        trimmed.startsWith('%%CODEBLOCK_')) {
+      return trimmed;
+    }
+
+    // Process bullet lists
+    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+      const items = trimmed.split('\n').map(line => {
+        const content = line.replace(/^[-*] /, '');
+        return `<li class="mb-2 text-zinc-300">${content}</li>`;
+      }).join('');
+      return `<ul class="list-disc list-outside ml-6 my-4 space-y-1">${items}</ul>`;
+    }
+
+    // Process numbered lists
+    if (/^\d+\. /.test(trimmed)) {
+      const items = trimmed.split('\n').map(line => {
+        const content = line.replace(/^\d+\. /, '');
+        return `<li class="mb-2 text-zinc-300">${content}</li>`;
+      }).join('');
+      return `<ol class="list-decimal list-outside ml-6 my-4 space-y-1">${items}</ol>`;
+    }
+
+    // Regular paragraph
+    return trimmed ? `<p class="text-zinc-300 leading-relaxed mb-6">${trimmed.replace(/\n/g, ' ')}</p>` : '';
+  }).join('\n');
+
+  // Restore code blocks
+  let finalResult = result;
+  codeBlocks.forEach((codeBlock, index) => {
+    finalResult = finalResult.replace(`%%CODEBLOCK_${index}%%`, codeBlock);
+  });
+
+  return finalResult;
+}
+
+// Process inline markdown: bold, italic, code, links
+function processInlineMarkdown(text: string): string {
+  return text
+    // Bold + Italic
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
     // Bold
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
+    // Italic
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
     // Inline code
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/`([^`]+)`/g, '<code class="bg-zinc-800 text-teal-300 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
     // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-    // Paragraphs (double newlines)
-    .split(/\n\n+/)
-    .map(para => {
-      const trimmed = para.trim();
-      if (trimmed.startsWith('<h') || trimmed.startsWith('<ul') || trimmed.startsWith('<ol')) {
-        return trimmed;
-      }
-      if (trimmed.startsWith('- ')) {
-        const items = trimmed.split('\n').map(line =>
-          `<li>${line.replace(/^- /, '')}</li>`
-        ).join('');
-        return `<ul>${items}</ul>`;
-      }
-      if (/^\d+\. /.test(trimmed)) {
-        const items = trimmed.split('\n').map(line =>
-          `<li>${line.replace(/^\d+\. /, '')}</li>`
-        ).join('');
-        return `<ol>${items}</ol>`;
-      }
-      return trimmed ? `<p>${trimmed.replace(/\n/g, ' ')}</p>` : '';
-    })
-    .join('\n');
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-teal-400 hover:text-teal-300 underline">$1</a>');
+}
+
+// Escape HTML special characters
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }

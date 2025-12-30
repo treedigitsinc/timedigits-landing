@@ -2,6 +2,9 @@ import { ArrowLeft, ArrowRight, Check, Trophy, Briefcase, CurrencyDollar, Clock,
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+import { RelatedPages } from "../components/RelatedPages";
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 const freelancerFeatures = [
   {
@@ -64,6 +67,8 @@ const freelanceTypes = [
 ];
 
 export function FreelanceTimeTracker() {
+  useSEO(seoData.freelance);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}
@@ -289,6 +294,9 @@ export function FreelanceTimeTracker() {
               </div>
             </div>
           </section>
+
+          {/* Related Pages */}
+          <RelatedPages currentPage="freelance" />
 
           {/* Final CTA */}
           <section className="text-center max-w-2xl mx-auto">
