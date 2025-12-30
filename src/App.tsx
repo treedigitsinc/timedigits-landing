@@ -6,6 +6,9 @@ import { Privacy } from './pages/Privacy'
 import { Terms } from './pages/Terms'
 import { Compare } from './pages/Compare'
 import { BestFreeTimeTracker } from './pages/BestFreeTimeTracker'
+import { TogglAlternative } from './pages/TogglAlternative'
+import { TimeTrackerNoSurveillance } from './pages/TimeTrackerNoSurveillance'
+import { FreelanceTimeTracker } from './pages/FreelanceTimeTracker'
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/best-free-time-tracker" element={<BestFreeTimeTracker />} />
+          <Route path="/toggl-alternative" element={<TogglAlternative />} />
+          <Route path="/time-tracker-no-surveillance" element={<TimeTrackerNoSurveillance />} />
+          <Route path="/freelance-time-tracker" element={<FreelanceTimeTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
