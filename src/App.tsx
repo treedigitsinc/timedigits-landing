@@ -9,6 +9,10 @@ import { BestFreeTimeTracker } from './pages/BestFreeTimeTracker'
 import { TogglAlternative } from './pages/TogglAlternative'
 import { TimeTrackerNoSurveillance } from './pages/TimeTrackerNoSurveillance'
 import { FreelanceTimeTracker } from './pages/FreelanceTimeTracker'
+import { AgencyTimeTracker } from './pages/AgencyTimeTracker'
+import { ClockifyAlternative } from './pages/ClockifyAlternative'
+import { HarvestAlternative } from './pages/HarvestAlternative'
+import { SmallBusinessTimeTracker } from './pages/SmallBusinessTimeTracker'
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
           <Route path="/toggl-alternative" element={<TogglAlternative />} />
           <Route path="/time-tracker-no-surveillance" element={<TimeTrackerNoSurveillance />} />
           <Route path="/freelance-time-tracker" element={<FreelanceTimeTracker />} />
+          <Route path="/agency-time-tracker" element={<AgencyTimeTracker />} />
+          <Route path="/clockify-alternative" element={<ClockifyAlternative />} />
+          <Route path="/harvest-alternative" element={<HarvestAlternative />} />
+          <Route path="/small-business-time-tracker" element={<SmallBusinessTimeTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
