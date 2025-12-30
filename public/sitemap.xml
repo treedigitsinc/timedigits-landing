@@ -157,7 +157,7 @@
   <!-- AI/LLM Content (for crawlers) -->
   <url>
     <loc>https://timedigits.com/llms.txt</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

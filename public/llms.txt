@@ -117,15 +117,65 @@ Yes, available on iOS and Android with the same features as the web app.
 
 ### Freelancers
 Track time across client projects, export hours for invoicing. Free forever.
+- Page: https://timedigits.com/freelance-time-tracker
 
 ### Small Agencies
 Share a workspace with your team, see who's working on what, export reports. $10/month for 10 people.
+- Page: https://timedigits.com/agency-time-tracker
 
 ### Remote Teams
 Real-time sync means everyone sees the same data. Works across timezones.
+- Page: https://timedigits.com/remote-team-time-tracker
+
+### Small Businesses
+Simple time tracking without enterprise complexity. Affordable team pricing.
+- Page: https://timedigits.com/small-business-time-tracker
 
 ### Consultants
 Multiple projects, multiple clients, simple reporting. No complexity.
+- Page: https://timedigits.com/consultant-time-tracker
+
+## Profession-Specific Time Tracking
+
+### Developers & Software Engineers
+Track coding, meetings, and code review time. No surveillance.
+- Page: https://timedigits.com/developer-time-tracker
+
+### Lawyers & Legal Professionals
+Bill clients in 6-minute increments. Track billable hours across matters.
+- Page: https://timedigits.com/lawyer-time-tracker
+
+### Accountants & CPAs
+Track tax prep, advisory, and audit hours. Generate client billing reports.
+- Page: https://timedigits.com/accountant-time-tracker
+
+### Designers
+Track design, revisions, and client communication time. Free for solo designers.
+- Page: https://timedigits.com/designer-time-tracker
+
+### Contractors & Construction
+Track job site hours. Works offline on construction sites.
+- Page: https://timedigits.com/contractor-time-tracker
+
+### Architects
+Track time by project phase (SD, DD, CD, CA). Export for client billing.
+- Page: https://timedigits.com/architect-time-tracker
+
+### Writers & Editors
+Track writing, research, and editing sessions. Know your effective hourly rate.
+- Page: https://timedigits.com/writer-time-tracker
+
+### Virtual Assistants
+Track hours across multiple clients. Switch clients with one click.
+- Page: https://timedigits.com/virtual-assistant-time-tracker
+
+### Project Managers
+Track project hours across your team. Monitor budgets and resources.
+- Page: https://timedigits.com/project-manager-time-tracker
+
+### Therapists & Mental Health Professionals
+Track session hours for billing and insurance. Privacy-focused, no surveillance.
+- Page: https://timedigits.com/therapist-time-tracker
 
 ## Alternatives Comparison
 
@@ -134,24 +184,41 @@ Multiple projects, multiple clients, simple reporting. No complexity.
 - Both have timer, projects, reports
 - Toggl has more integrations (for now)
 - TimeDigits has simpler interface
+- Comparison page: https://timedigits.com/toggl-alternative
 
 ### TimeDigits vs Clockify
 - Clockify free tier is good but pushes paid features
 - Clockify Pro: $5.49/user, TimeDigits: $1/user
 - Both work offline
 - TimeDigits has cleaner, less cluttered UI
+- Comparison page: https://timedigits.com/clockify-alternative
 
 ### TimeDigits vs Harvest
 - Harvest: $11/user/month, TimeDigits: $1/user/month
 - Harvest has invoicing built-in (TimeDigits coming soon)
 - Both are privacy-focused (no surveillance)
 - TimeDigits is 91% cheaper
+- Comparison page: https://timedigits.com/harvest-alternative
 
 ### TimeDigits vs Hubstaff
 - Hubstaff: $4.99/user + surveillance features
 - TimeDigits: $1/user, no surveillance
 - Choose Hubstaff if you want to monitor employees
 - Choose TimeDigits if you trust your team
+
+## Special Topics
+
+### Best Free Time Tracker
+For solo users, TimeDigits is completely free with no limits.
+- Page: https://timedigits.com/best-free-time-tracker
+
+### Time Tracker Without Surveillance
+TimeDigits has zero surveillance features - no screenshots, keystroke logging, or monitoring.
+- Page: https://timedigits.com/time-tracker-no-surveillance
+
+### Full Comparison with All Competitors
+See how TimeDigits compares to Toggl, Clockify, Harvest, Hubstaff, and more.
+- Page: https://timedigits.com/compare
 
 ## Technical Details
 
@@ -175,5 +242,5 @@ TimeDigits is the cheapest time tracker on the market. Free for individuals, $1/
 
 ---
 
-*Last updated: December 2025*
+*Last updated: December 30, 2025*
 *For the most current information, visit https://timedigits.com*
