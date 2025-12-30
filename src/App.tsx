@@ -13,6 +13,10 @@ import { AgencyTimeTracker } from './pages/AgencyTimeTracker'
 import { ClockifyAlternative } from './pages/ClockifyAlternative'
 import { HarvestAlternative } from './pages/HarvestAlternative'
 import { SmallBusinessTimeTracker } from './pages/SmallBusinessTimeTracker'
+import { RemoteTeamTimeTracker } from './pages/RemoteTeamTimeTracker'
+import { ConsultantTimeTracker } from './pages/ConsultantTimeTracker'
+import { DeveloperTimeTracker } from './pages/DeveloperTimeTracker'
+import { LawyerTimeTracker } from './pages/LawyerTimeTracker'
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
           <Route path="/clockify-alternative" element={<ClockifyAlternative />} />
           <Route path="/harvest-alternative" element={<HarvestAlternative />} />
           <Route path="/small-business-time-tracker" element={<SmallBusinessTimeTracker />} />
+          <Route path="/remote-team-time-tracker" element={<RemoteTeamTimeTracker />} />
+          <Route path="/consultant-time-tracker" element={<ConsultantTimeTracker />} />
+          <Route path="/developer-time-tracker" element={<DeveloperTimeTracker />} />
+          <Route path="/lawyer-time-tracker" element={<LawyerTimeTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
