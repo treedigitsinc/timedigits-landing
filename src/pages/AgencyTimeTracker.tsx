@@ -2,9 +2,8 @@ import { ArrowLeft, ArrowRight, Check, Trophy, Buildings, UsersThree, ChartLine,
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
-
-
-
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 const agencyFeatures = [
   {
@@ -74,6 +73,8 @@ const pricingComparison = [
 ];
 
 export function AgencyTimeTracker() {
+  useSEO(seoData.agency);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

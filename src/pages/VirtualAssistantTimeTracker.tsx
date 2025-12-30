@@ -2,7 +2,6 @@ import { ArrowLeft, ArrowRight, Check, Trophy, Headset, Clock, Briefcase, Export
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
-import { RelatedPages } from "../components/RelatedPages";
 import { useSEO } from "../hooks/useSEO";
 import { seoData } from "../data/seoData";
 

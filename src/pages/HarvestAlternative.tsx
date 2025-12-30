@@ -2,6 +2,8 @@ import { ArrowLeft, ArrowRight, Check, X, Trophy, Wallet, Clock, CurrencyDollar,
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 const featureComparison = [
   { feature: "One-click timer", timedigits: true, harvest: true },
@@ -48,6 +50,8 @@ const switchReasons = [
 ];
 
 export function HarvestAlternative() {
+  useSEO(seoData.harvestAlternative);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

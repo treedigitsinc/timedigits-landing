@@ -2,6 +2,8 @@ import { ArrowLeft, ArrowRight, Check, X, Trophy, Wallet, Clock, Sparkle, Shield
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 // Feature comparison: timedigits vs Toggl
 const featureComparison = [
@@ -51,6 +53,8 @@ const switchReasons = [
 ];
 
 export function TogglAlternative() {
+  useSEO(seoData.togglAlternative);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

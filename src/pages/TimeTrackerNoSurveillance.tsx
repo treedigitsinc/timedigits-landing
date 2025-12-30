@@ -2,6 +2,8 @@ import { ArrowLeft, ArrowRight, Check, X, ShieldCheck, Eye, EyeSlash, Camera, Ke
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 // Surveillance features comparison
 const surveillanceComparison = [
@@ -68,6 +70,8 @@ const whyNoSurveillance = [
 ];
 
 export function TimeTrackerNoSurveillance() {
+  useSEO(seoData.noSurveillance);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}

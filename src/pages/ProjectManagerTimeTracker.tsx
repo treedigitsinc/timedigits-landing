@@ -2,9 +2,8 @@ import { ArrowLeft, ArrowRight, Check, Trophy, Kanban, Clock, Briefcase, Export,
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
-
-
-
+import { useSEO } from "../hooks/useSEO";
+import { seoData } from "../data/seoData";
 
 const pmFeatures = [
   {
@@ -67,6 +66,8 @@ const pmTypes = [
 ];
 
 export function ProjectManagerTimeTracker() {
+  useSEO(seoData.projectManager);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Header */}
