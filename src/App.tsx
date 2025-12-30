@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Analytics } from './components/Analytics'
+import { CookieConsent } from './components/CookieConsent'
 import { Landing } from './pages/Landing'
 import { About } from './pages/About'
 import { Privacy } from './pages/Privacy'
+import { Cookies } from './pages/Cookies'
 import { Terms } from './pages/Terms'
 import { Compare } from './pages/Compare'
 import { Blog } from './pages/Blog'
@@ -38,6 +40,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookies" element={<Cookies />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/blog" element={<Blog />} />
@@ -64,6 +67,7 @@ function App() {
           <Route path="/project-manager-time-tracker" element={<ProjectManagerTimeTracker />} />
           <Route path="/therapist-time-tracker" element={<TherapistTimeTracker />} />
         </Routes>
+        <CookieConsent />
       </div>
     </BrowserRouter>
   )
