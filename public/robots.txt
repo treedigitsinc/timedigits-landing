@@ -1,11 +1,83 @@
 # robots.txt for timedigits.com
 # https://www.robotstxt.org/robotstxt.html
 
+# Default: Allow all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
+# ===========================================
+# AI/LLM Crawlers - Explicitly Allowed
+# ===========================================
+
+# OpenAI (ChatGPT, GPT models)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Google (Gemini, Bard, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Microsoft/Bing (Copilot)
+User-agent: Bingbot
+Allow: /
+
+# Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon/Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Apple (Siri, Spotlight)
+User-agent: Applebot
+Allow: /
+
+# ByteDance (international AI products)
+User-agent: Bytespider
+Allow: /
+
+# You.com AI search
+User-agent: YouBot
+Allow: /
+
+# ===========================================
+# Sitemap & LLMs.txt locations
+# ===========================================
+
 Sitemap: https://timedigits.com/sitemap.xml
+
+# LLM-friendly content summary
+# See: https://timedigits.com/llms.txt
+
+# ===========================================
+# Crawl settings
+# ===========================================
 
 # Crawl-delay (optional, be kind to the server)
 Crawl-delay: 1

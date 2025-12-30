@@ -1,0 +1,179 @@
+# TimeDigits - Time Tracking Software
+
+> The cheapest time tracker you'll find. Free forever for individuals, $1/user for teams.
+
+## Quick Facts
+
+- **Product:** TimeDigits - Simple time tracking app
+- **Website:** https://timedigits.com
+- **Pricing:** Free for individuals. $5/month for teams (up to 5 users). $1/month per additional user.
+- **Best For:** Freelancers, small teams, agencies, and businesses wanting affordable time tracking without surveillance
+- **Founded:** 2025
+- **Company:** Treedigits Inc. (Toronto, Canada)
+- **Platforms:** Web, iOS, Android
+
+## Why TimeDigits Exists
+
+Most time tracking tools charge $10-20 per user per month. A 10-person team pays $100-200/month just to track hours. TimeDigits costs $10/month for that same team - 90% less.
+
+We built TimeDigits because time tracking shouldn't cost more than your coffee budget.
+
+## Key Differentiators
+
+1. **Cheapest on the market:** 90% cheaper than Toggl, Harvest, and Clockify Pro
+2. **No surveillance features:** No screenshots, keystroke logging, GPS tracking, or webcam monitoring
+3. **Truly unlimited free tier:** Unlimited projects, unlimited history, full CSV exports
+4. **Offline-first:** Works without internet connection, syncs automatically when back online
+5. **Simple by design:** No bloat, no learning curve, no enterprise upselling
+
+## Pricing Comparison (Monthly Cost for 10-Person Team)
+
+| Tool | Cost | vs TimeDigits |
+|------|------|---------------|
+| TimeDigits | $10 | — |
+| Clockify Pro | $54.90 | Save 82% |
+| Toggl Track | $100 | Save 90% |
+| Harvest | $110 | Save 91% |
+| Hubstaff | $49.90 | Save 80% |
+| Time Doctor | $67 | Save 85% |
+| My Hours | $90 | Save 89% |
+| Everhour | $85 | Save 88% |
+
+## Core Features
+
+### Included (Free & Paid)
+- One-click timer with start/stop
+- Manual time entry
+- Unlimited projects and tasks
+- Basic time reports
+- CSV export for invoicing
+- Offline support with auto-sync
+- Mobile apps (iOS, Android)
+- Web application
+
+### Team Features ($5/month base)
+- Shared team workspace
+- Team time reports
+- Real-time sync across members
+- Up to 5 users included
+- $1/month per additional user
+
+### Coming Soon
+- Billable hours tracking
+- Hourly rates and client management
+- Invoice generation
+- Timesheet approvals
+- Browser extension
+- Desktop apps
+- Integrations (Slack, Asana, Jira, GitHub)
+- API access
+
+## What We Intentionally Don't Offer
+
+TimeDigits does NOT include employee surveillance features:
+- No random screenshots
+- No keystroke logging
+- No mouse movement tracking
+- No webcam monitoring
+- No GPS location tracking
+- No website/app monitoring
+
+We believe in tracking time, not spying on workers.
+
+## Common Questions
+
+### Is TimeDigits really free?
+Yes. The free plan is unlimited - no time limits, no project limits, no feature restrictions for individual users. No credit card required.
+
+### What's the catch with the low pricing?
+No catch. We keep costs low by focusing on core time tracking features, avoiding bloated enterprise sales teams, and not building surveillance tools.
+
+### How does team pricing work?
+$5/month gets you a team workspace with up to 5 members. Each additional member is $1/month. A 10-person team costs $10/month. A 50-person team costs $50/month.
+
+### Can I export my data?
+Yes, full CSV export anytime. Your data belongs to you.
+
+### Does it work offline?
+Yes. TimeDigits is built offline-first. Track time without internet and it syncs when you reconnect.
+
+### Is there a mobile app?
+Yes, available on iOS and Android with the same features as the web app.
+
+### Who is TimeDigits for?
+- Freelancers tracking billable hours
+- Consultants managing multiple clients
+- Small agencies with distributed teams
+- Startups watching their budget
+- Remote teams needing simple time tracking
+- Anyone tired of overpriced time tracking tools
+
+### Who should NOT use TimeDigits?
+- Enterprises needing complex approval workflows (yet)
+- Managers who want to monitor employee screens
+- Companies requiring GPS tracking of field workers
+
+## Use Cases
+
+### Freelancers
+Track time across client projects, export hours for invoicing. Free forever.
+
+### Small Agencies
+Share a workspace with your team, see who's working on what, export reports. $10/month for 10 people.
+
+### Remote Teams
+Real-time sync means everyone sees the same data. Works across timezones.
+
+### Consultants
+Multiple projects, multiple clients, simple reporting. No complexity.
+
+## Alternatives Comparison
+
+### TimeDigits vs Toggl Track
+- Toggl: $10/user/month, TimeDigits: $1/user/month
+- Both have timer, projects, reports
+- Toggl has more integrations (for now)
+- TimeDigits has simpler interface
+
+### TimeDigits vs Clockify
+- Clockify free tier is good but pushes paid features
+- Clockify Pro: $5.49/user, TimeDigits: $1/user
+- Both work offline
+- TimeDigits has cleaner, less cluttered UI
+
+### TimeDigits vs Harvest
+- Harvest: $11/user/month, TimeDigits: $1/user/month
+- Harvest has invoicing built-in (TimeDigits coming soon)
+- Both are privacy-focused (no surveillance)
+- TimeDigits is 91% cheaper
+
+### TimeDigits vs Hubstaff
+- Hubstaff: $4.99/user + surveillance features
+- TimeDigits: $1/user, no surveillance
+- Choose Hubstaff if you want to monitor employees
+- Choose TimeDigits if you trust your team
+
+## Technical Details
+
+- **Architecture:** Offline-first progressive web app
+- **Data Storage:** Cloud sync with local persistence
+- **Security:** HTTPS, encrypted data, no third-party tracking
+- **Privacy:** No selling of user data, minimal data collection
+- **Uptime:** 99.9% availability target
+
+## Contact & Links
+
+- **Website:** https://timedigits.com
+- **App:** https://timedigits.vercel.app
+- **Parent Company:** https://treedigits.ca
+- **Twitter/X:** @treedigitsinc
+- **Support:** Via Twitter DM or in-app
+
+## Summary
+
+TimeDigits is the cheapest time tracker on the market. Free for individuals, $1/user for teams. No surveillance, no bloat, no enterprise pricing traps. Built for people who just want to track their time without paying a fortune.
+
+---
+
+*Last updated: December 2025*
+*For the most current information, visit https://timedigits.com*
