@@ -5,6 +5,9 @@ import { About } from './pages/About'
 import { Privacy } from './pages/Privacy'
 import { Terms } from './pages/Terms'
 import { Compare } from './pages/Compare'
+import { Blog } from './pages/Blog'
+import { BlogPost } from './pages/BlogPost'
+import { FAQPage } from './pages/FAQPage'
 import { BestFreeTimeTracker } from './pages/BestFreeTimeTracker'
 import { TogglAlternative } from './pages/TogglAlternative'
 import { TimeTrackerNoSurveillance } from './pages/TimeTrackerNoSurveillance'
@@ -21,6 +24,10 @@ import { AccountantTimeTracker } from './pages/AccountantTimeTracker'
 import { DesignerTimeTracker } from './pages/DesignerTimeTracker'
 import { ContractorTimeTracker } from './pages/ContractorTimeTracker'
 import { ArchitectTimeTracker } from './pages/ArchitectTimeTracker'
+import { WriterTimeTracker } from './pages/WriterTimeTracker'
+import { VirtualAssistantTimeTracker } from './pages/VirtualAssistantTimeTracker'
+import { ProjectManagerTimeTracker } from './pages/ProjectManagerTimeTracker'
+import { TherapistTimeTracker } from './pages/TherapistTimeTracker'
 
 function App() {
   return (
@@ -33,6 +40,9 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/compare" element={<Compare />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/best-free-time-tracker" element={<BestFreeTimeTracker />} />
           <Route path="/toggl-alternative" element={<TogglAlternative />} />
           <Route path="/time-tracker-no-surveillance" element={<TimeTrackerNoSurveillance />} />
@@ -49,6 +59,10 @@ function App() {
           <Route path="/designer-time-tracker" element={<DesignerTimeTracker />} />
           <Route path="/contractor-time-tracker" element={<ContractorTimeTracker />} />
           <Route path="/architect-time-tracker" element={<ArchitectTimeTracker />} />
+          <Route path="/writer-time-tracker" element={<WriterTimeTracker />} />
+          <Route path="/virtual-assistant-time-tracker" element={<VirtualAssistantTimeTracker />} />
+          <Route path="/project-manager-time-tracker" element={<ProjectManagerTimeTracker />} />
+          <Route path="/therapist-time-tracker" element={<TherapistTimeTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
