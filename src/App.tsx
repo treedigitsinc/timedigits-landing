@@ -5,6 +5,7 @@ import { About } from './pages/About'
 import { Privacy } from './pages/Privacy'
 import { Terms } from './pages/Terms'
 import { Compare } from './pages/Compare'
+import { BestFreeTimeTracker } from './pages/BestFreeTimeTracker'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/compare" element={<Compare />} />
+          <Route path="/best-free-time-tracker" element={<BestFreeTimeTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
