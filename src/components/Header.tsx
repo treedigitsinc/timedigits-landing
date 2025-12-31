@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { List, X } from "@phosphor-icons/react";
 import { Logo } from "./Logo";
 import { cn } from "../lib/utils";
@@ -7,6 +8,7 @@ import { cn } from "../lib/utils";
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,23 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Features", href: "#features" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Blog", href: "/blog" },
-    { name: "FAQ", href: "/faq" },
+    { name: "Features", href: "#features", isHash: true },
+    { name: "Pricing", href: "#pricing", isHash: true },
+    { name: "Blog", href: "/blog", isHash: false },
+    { name: "FAQ", href: "/faq", isHash: false },
   ];
+
+  // Handle hash links - if on homepage, scroll to section; otherwise navigate to homepage with hash
+  const handleHashClick = (href: string) => {
+    if (location.pathname === "/") {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = "/" + href;
+    }
+  };
 
   return (
     <header
@@ -34,24 +48,34 @@ export function Header() {
     >
       <div className="container flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <Logo className="group-hover:scale-110 transition-transform duration-300" size={32} variant="light" />
           <span className="text-xl font-bold tracking-tight text-white">
             timedigits
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.isHash ? (
+              <button
+                key={link.name}
+                onClick={() => handleHashClick(link.href)}
+                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+              >
+                {link.name}
+              </button>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
+          )}
         </nav>
 
         {/* Desktop Actions */}
@@ -83,16 +107,29 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-zinc-950 border-b border-zinc-800 p-6 flex flex-col gap-6 animate-in fade-in slide-in-from-top-5">
           <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-lg font-medium text-zinc-400"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isHash ? (
+                <button
+                  key={link.name}
+                  onClick={() => {
+                    handleHashClick(link.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-lg font-medium text-zinc-400 text-left"
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-lg font-medium text-zinc-400"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
           </nav>
           <div className="flex flex-col gap-4 pt-6 border-t border-zinc-800">
             <a
