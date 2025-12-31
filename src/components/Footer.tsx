@@ -9,12 +9,12 @@ export function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           <div className="max-w-xs">
-            <a href="/" className="flex items-center gap-2 mb-6">
+            <Link to="/" className="flex items-center gap-2 mb-6">
               <Logo size={28} variant="light" />
               <span className="text-lg font-bold tracking-tight text-white">
                 timedigits
               </span>
-            </a>
+            </Link>
             <p className="text-zinc-500 text-sm leading-relaxed">
               track time. bill time.
             </p>
