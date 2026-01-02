@@ -477,7 +477,7 @@ export function Compare() {
               <p className="text-zinc-400 mb-8">
                 Free forever for individuals. $1/user for teams. No credit card required.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

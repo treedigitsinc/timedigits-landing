@@ -100,7 +100,7 @@ export function TimeTrackerNoSurveillance() {
               Track time without surveillance. No screenshots, no keystroke logging, no mouse tracking.
               Just simple, honest time tracking that respects your privacy.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -328,7 +328,7 @@ export function TimeTrackerNoSurveillance() {
               <p className="text-zinc-400 mb-8">
                 Track your time with a tool that respects your privacy. Free for individuals.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

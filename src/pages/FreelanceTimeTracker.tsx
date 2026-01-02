@@ -97,7 +97,7 @@ export function FreelanceTimeTracker() {
               Track billable hours across all your clients and projects. Export for invoicing.
               100% free forever for individual freelancers — no credit card, no limits.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -308,7 +308,7 @@ export function FreelanceTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 Free forever. No credit card. No limits. Just accurate time tracking for your freelance work.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

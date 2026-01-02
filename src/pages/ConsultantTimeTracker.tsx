@@ -94,7 +94,7 @@ export function ConsultantTimeTracker() {
               Track billable hours across all your clients. Export for invoicing.
               Free forever for individual consultants — no limits, no credit card.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -264,7 +264,7 @@ export function ConsultantTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 Free forever. No credit card. Bill every hour accurately.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

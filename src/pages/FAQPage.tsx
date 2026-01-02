@@ -230,7 +230,7 @@ export function FAQPage() {
                 Contact Support
               </a>
               <a
-                href="https://timedigits.vercel.app/login"
+                href="https://app.timedigits.ca/login"
                 className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors"
               >
                 Try timedigits Free

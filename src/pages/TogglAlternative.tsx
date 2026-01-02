@@ -83,7 +83,7 @@ export function TogglAlternative() {
               Love Toggl's simplicity but not the price? timedigits offers the same core time tracking features
               at a fraction of the cost. A 10-person team saves $1,080/year.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -288,7 +288,7 @@ export function TogglAlternative() {
               <p className="text-zinc-400 mb-8">
                 Same core features, 90% lower price. Try timedigits free — no credit card required.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

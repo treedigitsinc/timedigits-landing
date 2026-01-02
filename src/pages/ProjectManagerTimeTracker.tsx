@@ -96,7 +96,7 @@ export function ProjectManagerTimeTracker() {
               Track project hours across your team. Monitor budgets and resources.
               $1/user/month — no enterprise pricing.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -267,7 +267,7 @@ export function ProjectManagerTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 14-day free trial. $1/user/month. No enterprise pricing.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

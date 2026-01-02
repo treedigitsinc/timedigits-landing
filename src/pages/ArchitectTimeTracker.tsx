@@ -97,7 +97,7 @@ export function ArchitectTimeTracker() {
               Track billable hours across projects and phases. Export for client billing.
               Free forever for solo architects — $1/user for firms.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -268,7 +268,7 @@ export function ArchitectTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 Free forever for solo architects. Bill every hour accurately.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

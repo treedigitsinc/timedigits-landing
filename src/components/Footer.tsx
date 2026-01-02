@@ -27,7 +27,7 @@ export function Footer() {
                 <li><a href="#features" className="hover:text-teal-400 transition-colors">Features</a></li>
                 <li><a href="#pricing" className="hover:text-teal-400 transition-colors">Pricing</a></li>
                 <li><Link to="/compare" className="hover:text-teal-400 transition-colors">Compare</Link></li>
-                <li><a href="https://timedigits.vercel.app/login" className="hover:text-teal-400 transition-colors">Sign Up</a></li>
+                <li><a href="https://app.timedigits.ca/login" className="hover:text-teal-400 transition-colors">Sign Up</a></li>
               </ul>
             </div>
             <div>

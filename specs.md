@@ -3,7 +3,7 @@
 ## Overview
 Comprehensive testing and improvement specification for the timedigits landing page. Target: **10/10 score** across all dimensions.
 
-**Site URL:** https://timedigits-landing.vercel.app
+**Site URL:** https://timedigits.ca
 **Brand Tagline:** "Simple time tracking that works."
 
 ---
@@ -29,7 +29,7 @@ To achieve a 10/10 score, ALL of the following must pass:
 - [ ] Mobile menu opens/closes correctly
 - [ ] Smooth scroll to anchor sections (#features, #pricing, #faq)
 - [ ] External links open in new tab (social, GitHub)
-- [ ] CTA buttons link to correct URLs (timedigits.vercel.app/login)
+- [ ] CTA buttons link to correct URLs (app.timedigits.ca/login)
 - [ ] Interactive timer in hero works (start/stop)
 - [ ] Feature cards are clickable and change active state
 - [ ] Feature demo updates when cards are clicked

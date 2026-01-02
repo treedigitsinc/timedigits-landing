@@ -39,7 +39,7 @@ export function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

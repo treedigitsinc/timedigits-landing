@@ -231,7 +231,7 @@ See how TimeDigits compares to Toggl, Clockify, Harvest, Hubstaff, and more.
 ## Contact & Links
 
 - **Website:** https://timedigits.com
-- **App:** https://timedigits.vercel.app
+- **App:** https://app.timedigits.ca
 - **Parent Company:** https://treedigits.ca
 - **Twitter/X:** @treedigitsinc
 - **Support:** Via Twitter DM or in-app

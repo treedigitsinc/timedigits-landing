@@ -81,13 +81,13 @@ export function Header() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="https://timedigits.vercel.app/login"
+            href="https://app.timedigits.ca/login"
             className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-2"
           >
             Sign in
           </a>
           <a
-            href="https://timedigits.vercel.app/login"
+            href="https://app.timedigits.ca/login"
             className="bg-white text-black hover:bg-zinc-200 transition-colors px-5 py-2 rounded-full text-sm font-bold"
           >
             Get Started
@@ -133,13 +133,13 @@ export function Header() {
           </nav>
           <div className="flex flex-col gap-4 pt-6 border-t border-zinc-800">
             <a
-              href="https://timedigits.vercel.app/login"
+              href="https://app.timedigits.ca/login"
               className="text-lg font-medium text-zinc-400"
             >
               Sign in
             </a>
             <a
-              href="https://timedigits.vercel.app/login"
+              href="https://app.timedigits.ca/login"
               className="bg-teal-500 text-white py-4 rounded-2xl text-center font-bold"
             >
               Get Started

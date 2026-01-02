@@ -99,7 +99,7 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <a href="https://timedigits.vercel.app/login" className="block">
+              <a href="https://app.timedigits.ca/login" className="block">
                 {plan.popular ? (
                   <HoverBorderGradient
                     containerClassName="w-full rounded-xl"

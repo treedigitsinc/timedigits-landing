@@ -85,7 +85,7 @@ export function SmallBusinessTimeTracker() {
               Track employee hours without enterprise pricing. $5/month for up to 5 users,
               then $1/user after. Free for solo owners.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -281,7 +281,7 @@ export function SmallBusinessTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 14-day free trial. $5/month for up to 5 employees. No credit card required.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

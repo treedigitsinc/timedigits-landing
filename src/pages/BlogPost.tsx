@@ -156,7 +156,7 @@ export function BlogPost() {
                 Join thousands of freelancers and teams using timedigits. Free forever for individuals.
               </p>
               <a
-                href="https://timedigits.vercel.app/login"
+                href="https://app.timedigits.ca/login"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors"
               >
                 Start Tracking Free <ArrowRight size={18} />

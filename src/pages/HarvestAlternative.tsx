@@ -80,7 +80,7 @@ export function HarvestAlternative() {
               Love Harvest but hate the price? timedigits offers the same core time tracking
               at $1/user instead of $11/user. Free for individuals.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -275,7 +275,7 @@ export function HarvestAlternative() {
               <p className="text-zinc-400 mb-8">
                 Switch from Harvest and keep $1,200/year for a 10-person team. Free for individuals.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

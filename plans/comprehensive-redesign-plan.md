@@ -63,9 +63,9 @@ timedigits-landing/
 ```
 
 ### 3.2 Redirects & External Links
-- **Login/Sign In:** Must redirect to `https://timedigits.vercel.app/login`
-- **Start Free / Get Started:** Must redirect to `https://timedigits.vercel.app/signup`
-- **Dashboard (Post-Login):** `https://timedigits.vercel.app/`
+- **Login/Sign In:** Must redirect to `https://app.timedigits.ca/login`
+- **Start Free / Get Started:** Must redirect to `https://app.timedigits.ca/signup`
+- **Dashboard (Post-Login):** `https://app.timedigits.ca/`
 
 ---
 
@@ -147,7 +147,7 @@ We will use **Aceternity UI** as the primary library for high-impact animations,
 - [ ] Build the `InteractiveTimer` component with full state logic.
 - [ ] Implement the "Typewriter 2.0" with better cursor handling.
 - [ ] Add the "Magnetic" effect to primary CTAs.
-- [ ] **Fix Redirects:** Update all buttons to point to `https://timedigits.vercel.app/signup` and `login`.
+- [ ] **Fix Redirects:** Update all buttons to point to `https://app.timedigits.ca/signup` and `login`.
 
 ### Phase 3: Feature Storytelling
 - [ ] Build the `StickyFeatureShowcase` component.

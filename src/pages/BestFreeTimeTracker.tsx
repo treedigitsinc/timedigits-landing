@@ -133,7 +133,7 @@ export function BestFreeTimeTracker() {
               Looking for a free time tracker that actually stays free? timedigits offers unlimited projects,
               unlimited history, and full exports — no credit card, no catches, no limits.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -364,7 +364,7 @@ export function BestFreeTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 No credit card. No limits. No upselling. Just a simple, free time tracker that works.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

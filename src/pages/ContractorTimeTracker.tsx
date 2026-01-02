@@ -97,7 +97,7 @@ export function ContractorTimeTracker() {
               Track job site hours. Bill clients accurately. Works offline.
               Free forever for solo contractors — $1/user for crews.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -268,7 +268,7 @@ export function ContractorTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 Free forever for solo contractors. $1/user for crews.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

@@ -97,7 +97,7 @@ export function WriterTimeTracker() {
               Track writing, research, and editing time. Bill clients accurately.
               Free forever for freelance writers — no limits, no credit card.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -268,7 +268,7 @@ export function WriterTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 Free forever for writers. Know exactly where your time goes.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

@@ -80,7 +80,7 @@ export function ClockifyAlternative() {
               Love Clockify's free tier but hate the upgrade nags? timedigits offers the same core features
               with a cleaner interface and 82% cheaper team pricing.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -270,7 +270,7 @@ export function ClockifyAlternative() {
               <p className="text-zinc-400 mb-8">
                 Free forever for individuals. 82% cheaper for teams. No upgrade nags.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"

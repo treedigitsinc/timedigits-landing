@@ -103,7 +103,7 @@ export function AgencyTimeTracker() {
               Track billable hours across clients and team members. Simple pricing that scales with your agency.
               $5/month for up to 5 users, then $1/user after.
             </p>
-            <a href="https://timedigits.vercel.app/login">
+            <a href="https://app.timedigits.ca/login">
               <HoverBorderGradient
                 containerClassName="rounded-full mx-auto"
                 className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
@@ -279,7 +279,7 @@ export function AgencyTimeTracker() {
               <p className="text-zinc-400 mb-8">
                 14-day free trial. No credit card required. Team pricing that actually makes sense.
               </p>
-              <a href="https://timedigits.vercel.app/login">
+              <a href="https://app.timedigits.ca/login">
                 <HoverBorderGradient
                   containerClassName="rounded-full mx-auto"
                   className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
