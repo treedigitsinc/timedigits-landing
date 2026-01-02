@@ -51,19 +51,19 @@ export function Blog() {
     <>
       <Header />
 
-      <main id="main-content" className="min-h-screen bg-zinc-950 pt-24">
+      <main id="main-content" className="min-h-screen bg-stone-50 pt-24">
         {/* Hero Section */}
-        <section className="py-16 border-b border-zinc-800/50">
+        <section className="py-16 border-b border-stone-200">
           <div className="container max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-4">
                 Time Tracking Blog
               </h1>
-              <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+              <p className="text-xl text-stone-600 max-w-2xl mx-auto">
                 Insights on productivity, time tracking best practices, AI automation, and building efficient workflows.
               </p>
             </motion.div>
@@ -71,9 +71,9 @@ export function Blog() {
         </section>
 
         {/* Featured Posts */}
-        <section className="py-16 border-b border-zinc-800/50">
+        <section className="py-16 border-b border-stone-200">
           <div className="container max-w-6xl">
-            <h2 className="text-2xl font-bold text-white mb-8">Featured Articles</h2>
+            <h2 className="text-2xl font-bold text-stone-800 mb-8">Featured Articles</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {featuredPosts.map((post, index) => (
                 <motion.article
@@ -81,26 +81,26 @@ export function Blog() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="glass rounded-2xl p-6 border border-zinc-800/50 hover:border-teal-500/30 transition-colors group"
+                  className="bg-white rounded-2xl p-6 border border-stone-200 hover:border-sage-400 hover:shadow-lg transition-all group"
                 >
-                  <div className="flex items-center gap-2 text-xs text-teal-400 mb-3">
-                    <span className="px-2 py-1 rounded-full bg-teal-500/10">
+                  <div className="flex items-center gap-2 text-xs text-sage-600 mb-3">
+                    <span className="px-2 py-1 rounded-full bg-sage-100 text-sage-700">
                       {categoryLabels[post.category]}
                     </span>
-                    <span className="text-zinc-500 flex items-center gap-1">
+                    <span className="text-stone-500 flex items-center gap-1">
                       <Clock size={12} />
                       {post.readingTime} min read
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                  <h3 className="text-lg font-bold text-stone-800 mb-2 group-hover:text-sage-600 transition-colors">
                     <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
-                  <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
+                  <p className="text-stone-600 text-sm mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="text-teal-400 text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                    className="text-sage-600 text-sm flex items-center gap-1 hover:gap-2 transition-all font-medium"
                   >
                     Read more <ArrowRight size={14} />
                   </Link>
@@ -111,21 +111,21 @@ export function Blog() {
         </section>
 
         {/* Search and Filter */}
-        <section className="py-8 border-b border-zinc-800/50 sticky top-16 bg-zinc-950/95 backdrop-blur-sm z-10">
+        <section className="py-8 border-b border-stone-200 sticky top-16 bg-stone-50/95 backdrop-blur-sm z-10">
           <div className="container max-w-6xl">
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
               {/* Search */}
               <div className="relative w-full md:w-80">
                 <MagnifyingGlass
                   size={18}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400"
                 />
                 <input
                   type="text"
                   placeholder="Search articles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:border-teal-500 focus:outline-none transition-colors"
+                  className="w-full pl-10 pr-4 py-2 bg-white border border-stone-300 rounded-lg text-stone-800 placeholder-stone-400 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -137,8 +137,8 @@ export function Blog() {
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       selectedCategory === category
-                        ? 'bg-teal-500 text-white'
-                        : 'bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800'
+                        ? 'bg-sage-500 text-white'
+                        : 'bg-white text-stone-600 hover:text-stone-800 hover:bg-stone-100 border border-stone-200'
                     }`}
                   >
                     {categoryLabels[category]}
@@ -153,20 +153,20 @@ export function Blog() {
         <section className="py-16">
           <div className="container max-w-6xl">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-stone-800">
                 {selectedCategory === 'all' ? 'All Articles' : categoryLabels[selectedCategory]}
               </h2>
-              <span className="text-zinc-500 text-sm">
+              <span className="text-stone-500 text-sm">
                 {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'}
               </span>
             </div>
 
             {filteredPosts.length === 0 ? (
               <div className="text-center py-16">
-                <p className="text-zinc-400">No articles found matching your criteria.</p>
+                <p className="text-stone-600">No articles found matching your criteria.</p>
                 <button
                   onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
-                  className="mt-4 text-teal-400 hover:underline"
+                  className="mt-4 text-sage-600 hover:underline font-medium"
                 >
                   Clear filters
                 </button>
@@ -179,17 +179,17 @@ export function Blog() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: Math.min(index * 0.05, 0.5) }}
-                    className="glass rounded-xl p-6 border border-zinc-800/50 hover:border-zinc-700 transition-colors group"
+                    className="bg-white rounded-xl p-6 border border-stone-200 hover:border-stone-300 hover:shadow-md transition-all group"
                   >
                     <div className="flex items-center gap-2 text-xs mb-3">
-                      <span className="px-2 py-1 rounded-full bg-zinc-800 text-zinc-400">
+                      <span className="px-2 py-1 rounded-full bg-stone-100 text-stone-600">
                         {categoryLabels[post.category]}
                       </span>
-                      <span className="text-zinc-500 flex items-center gap-1">
+                      <span className="text-stone-500 flex items-center gap-1">
                         <Clock size={12} />
                         {post.readingTime} min
                       </span>
-                      <span className="text-zinc-600">
+                      <span className="text-stone-400">
                         {new Date(post.publishedAt).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
@@ -197,10 +197,10 @@ export function Blog() {
                         })}
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                    <h3 className="text-lg font-bold text-stone-800 mb-2 group-hover:text-sage-600 transition-colors">
                       <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                     </h3>
-                    <p className="text-zinc-400 text-sm mb-4 line-clamp-2">
+                    <p className="text-stone-600 text-sm mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
                     <div className="flex items-center justify-between">
@@ -208,7 +208,7 @@ export function Blog() {
                         {post.tags.slice(0, 3).map(tag => (
                           <span
                             key={tag}
-                            className="text-xs text-zinc-500 flex items-center gap-1"
+                            className="text-xs text-stone-400 flex items-center gap-1"
                           >
                             <Tag size={10} />
                             {tag}
@@ -217,7 +217,7 @@ export function Blog() {
                       </div>
                       <Link
                         to={`/blog/${post.slug}`}
-                        className="text-teal-400 text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                        className="text-sage-600 text-sm flex items-center gap-1 hover:gap-2 transition-all font-medium"
                       >
                         Read <ArrowRight size={14} />
                       </Link>
