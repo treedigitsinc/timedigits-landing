@@ -1,85 +1,129 @@
 "use client";
-import { BackgroundBeams } from "./ui/background-beams";
-import { RotatingText } from "./ui/rotating-text";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import { InteractiveTimer } from "./InteractiveTimer";
-import { ArrowRight, CaretDown } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
-      <BackgroundBeams className="opacity-40" />
-      
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-center pt-20 pb-12 overflow-hidden bg-stone-50">
+      {/* Subtle gradient orbs */}
+      <div className="absolute top-20 right-1/4 w-96 h-96 bg-sage-200/40 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-stone-200/60 rounded-full blur-3xl" />
+
       <div className="container relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          {/* Left Content */}
-          <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-medium mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" />
-              Free for individuals
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
-              <RotatingText
-                words={[
-                  { text: "Track", color: "text-teal-400" },
-                  { text: "Report", color: "text-teal-400" },
-                  { text: "Bill", color: "text-emerald-400" },
-                  { text: "Export", color: "text-blue-400" },
-                  { text: "Automate", color: "text-pink-400" },
-                ]}
-                suffix="time."
-                interval={2500}
-              />
-            </h1>
-            
-            <p className="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              <span className="text-white font-semibold">track time. bill time.</span>{" "}
-              Free forever for you. $1/user for your team.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a href="https://app.timedigits.ca/login">
-                <HoverBorderGradient
-                  containerClassName="rounded-full"
-                  className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
-                >
-                  <span>Start Free</span>
-                  <ArrowRight size={18} weight="bold" />
-                </HoverBorderGradient>
-              </a>
-              
-              <a 
-                href="#features"
-                className="text-zinc-400 hover:text-white transition-colors flex items-center gap-2 px-6 py-3"
-              >
-                See how it works
-              </a>
-            </div>
-            
-            <div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-zinc-600 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-zinc-800" />
-                No credit card
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-zinc-800" />
-                Cancel anytime
-              </div>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Compact badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage-100 border border-sage-200 text-sage-700 text-xs font-medium mb-8"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-sage-500 animate-gentle-pulse" />
+            Free for individuals
+          </motion.div>
 
-          {/* Right Content - Interactive Timer */}
-          <div className="flex-1 w-full max-w-md">
-            <InteractiveTimer />
-          </div>
+          {/* Main headline - editorial serif style */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-stone-900 mb-6 leading-[0.95]"
+          >
+            Track time.
+            <br />
+            <span className="text-stone-400">Bill clients.</span>
+          </motion.h1>
+
+          {/* Value prop - tight and punchy */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-stone-500 max-w-lg mx-auto mb-10 leading-relaxed"
+          >
+            Simple time tracking that gets out of your way.
+            <br className="hidden sm:block" />
+            <span className="text-stone-700 font-medium">Free forever.</span> Teams from $1/user.
+          </motion.p>
+
+          {/* Single prominent CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href="https://app.timedigits.ca/login"
+              className="group inline-flex items-center gap-3 bg-stone-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-stone-800 transition-all duration-300 shadow-lg shadow-stone-900/20 hover:shadow-xl hover:shadow-stone-900/30"
+            >
+              Start Free
+              <ArrowRight size={20} weight="bold" className="group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <a
+              href="#features"
+              className="text-stone-500 hover:text-stone-900 transition-colors text-sm font-medium"
+            >
+              See features
+            </a>
+          </motion.div>
+
+          {/* Trust signals - minimal */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-10 flex items-center justify-center gap-6 text-stone-400 text-xs font-medium"
+          >
+            <span>No credit card</span>
+            <span className="w-1 h-1 rounded-full bg-stone-300" />
+            <span>Setup in 30 seconds</span>
+            <span className="w-1 h-1 rounded-full bg-stone-300" />
+            <span>Cancel anytime</span>
+          </motion.div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-500 animate-bounce">
-        <span className="text-[10px] uppercase tracking-[0.2em] font-mono">Explore</span>
-        <CaretDown size={16} />
+        {/* Compact app preview */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-16 max-w-2xl mx-auto"
+        >
+          <div className="bg-white rounded-2xl border border-stone-200 shadow-2xl shadow-stone-200/50 p-6 md:p-8">
+            {/* Mini timer demo */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-sage-500 animate-gentle-pulse" />
+                <span className="text-xs font-mono uppercase tracking-wider text-stone-400">Tracking</span>
+              </div>
+              <span className="text-xs text-stone-400">Project Alpha</span>
+            </div>
+
+            <div className="text-center py-8">
+              <div className="font-mono text-5xl md:text-6xl font-light tracking-tight text-stone-900 tabular-nums">
+                02:34:17
+              </div>
+            </div>
+
+            {/* Quick stats */}
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-stone-100">
+              <div className="text-center">
+                <div className="text-2xl font-semibold text-stone-900">6.4h</div>
+                <div className="text-xs text-stone-400 mt-1">Today</div>
+              </div>
+              <div className="text-center border-x border-stone-100">
+                <div className="text-2xl font-semibold text-stone-900">32h</div>
+                <div className="text-xs text-stone-400 mt-1">This week</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-semibold text-sage-600">$3,200</div>
+                <div className="text-xs text-stone-400 mt-1">Billable</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -22,10 +22,8 @@ export function Header() {
     { name: "Features", href: "#features", isHash: true },
     { name: "Pricing", href: "#pricing", isHash: true },
     { name: "Blog", href: "/blog", isHash: false },
-    { name: "FAQ", href: "/faq", isHash: false },
   ];
 
-  // Handle hash links - if on homepage, scroll to section; otherwise navigate to homepage with hash
   const handleHashClick = (href: string) => {
     if (location.pathname === "/") {
       const element = document.querySelector(href);
@@ -40,17 +38,17 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-zinc-950/80 backdrop-blur-md border-zinc-800 py-3"
-          : "bg-transparent border-transparent py-5"
+          ? "bg-white/90 backdrop-blur-md border-b border-stone-200 py-3"
+          : "bg-transparent py-5"
       )}
     >
       <div className="container flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <Logo className="group-hover:scale-110 transition-transform duration-300" size={32} variant="light" />
-          <span className="text-xl font-bold tracking-tight text-white">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <Logo className="group-hover:scale-105 transition-transform duration-300" size={28} variant="dark" />
+          <span className="text-xl font-semibold tracking-tight text-stone-900">
             timedigits
           </span>
         </Link>
@@ -62,7 +60,7 @@ export function Header() {
               <button
                 key={link.name}
                 onClick={() => handleHashClick(link.href)}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                className="text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors"
               >
                 {link.name}
               </button>
@@ -70,7 +68,7 @@ export function Header() {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                className="text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors"
               >
                 {link.name}
               </Link>
@@ -79,24 +77,24 @@ export function Header() {
         </nav>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="https://app.timedigits.ca/login"
-            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-2"
+            className="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors px-4 py-2"
           >
             Sign in
           </a>
           <a
             href="https://app.timedigits.ca/login"
-            className="bg-white text-black hover:bg-zinc-200 transition-colors px-5 py-2 rounded-full text-sm font-bold"
+            className="bg-stone-900 text-white hover:bg-stone-800 transition-colors px-5 py-2.5 rounded-full text-sm font-semibold"
           >
-            Get Started
+            Start Free
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-stone-900 p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <List size={24} />}
@@ -105,7 +103,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-zinc-950 border-b border-zinc-800 p-6 flex flex-col gap-6 animate-in fade-in slide-in-from-top-5">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-stone-200 p-6 flex flex-col gap-6 shadow-lg">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) =>
               link.isHash ? (
@@ -115,7 +113,7 @@ export function Header() {
                     handleHashClick(link.href);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="text-lg font-medium text-zinc-400 text-left"
+                  className="text-lg font-medium text-stone-600 text-left"
                 >
                   {link.name}
                 </button>
@@ -123,7 +121,7 @@ export function Header() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-lg font-medium text-zinc-400"
+                  className="text-lg font-medium text-stone-600"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -131,18 +129,18 @@ export function Header() {
               )
             )}
           </nav>
-          <div className="flex flex-col gap-4 pt-6 border-t border-zinc-800">
+          <div className="flex flex-col gap-4 pt-6 border-t border-stone-200">
             <a
               href="https://app.timedigits.ca/login"
-              className="text-lg font-medium text-zinc-400"
+              className="text-lg font-medium text-stone-600"
             >
               Sign in
             </a>
             <a
               href="https://app.timedigits.ca/login"
-              className="bg-teal-500 text-white py-4 rounded-2xl text-center font-bold"
+              className="bg-stone-900 text-white py-4 rounded-2xl text-center font-bold"
             >
-              Get Started
+              Start Free
             </a>
           </div>
         </div>
