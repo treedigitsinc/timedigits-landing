@@ -18,14 +18,37 @@ export function Hero() {
   const [isRunning, setIsRunning] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
-  // Rotate words every 2.5 seconds
+  // Typewriter effect for rotating words
   useEffect(() => {
-    const wordInterval = setInterval(() => {
+    const currentWord = rotatingWords[wordIndex];
+    const typeSpeed = isDeleting ? 50 : 80;
+
+    if (!isDeleting && displayedText === currentWord) {
+      // Word fully typed, wait then start deleting
+      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayedText === "") {
+      // Word fully deleted, move to next word
+      setIsDeleting(false);
       setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2500);
-    return () => clearInterval(wordInterval);
-  }, []);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setDisplayedText(currentWord.substring(0, displayedText.length - 1));
+      } else {
+        setDisplayedText(currentWord.substring(0, displayedText.length + 1));
+      }
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, wordIndex]);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -77,20 +100,12 @@ export function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-[1.05] tracking-tight">
               Track time.
               <br />
-              <span className="text-teal-500 inline-flex">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={wordIndex}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="inline-block"
-                  >
-                    {rotatingWords[wordIndex]}
-                  </motion.span>
-                </AnimatePresence>
-                <span className="ml-2">time.</span>
+              <span className="text-teal-500">
+                <span className="inline-block min-w-[4ch]">
+                  {displayedText}
+                  <span className="animate-pulse">|</span>
+                </span>
+                <span className="ml-1">time.</span>
               </span>
             </h1>
 
