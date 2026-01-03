@@ -1,11 +1,30 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ArrowRight, Play, Pause, Check } from "@phosphor-icons/react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Rotating words for the hero headline
+const rotatingWords = [
+  "Bill",
+  "Save",
+  "Own",
+  "Love",
+  "Value",
+  "Reclaim",
+];
 
 export function Hero() {
   const [isRunning, setIsRunning] = useState(false);
   const [seconds, setSeconds] = useState(0);
+  const [wordIndex, setWordIndex] = useState(0);
+
+  // Rotate words every 2.5 seconds
+  useEffect(() => {
+    const wordInterval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2500);
+    return () => clearInterval(wordInterval);
+  }, []);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -57,7 +76,21 @@ export function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-[1.05] tracking-tight">
               Track time.
               <br />
-              <span className="text-teal-500">Bill time.</span>
+              <span className="text-teal-500 inline-flex">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={wordIndex}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="inline-block"
+                  >
+                    {rotatingWords[wordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+                <span className="ml-2">time.</span>
+              </span>
             </h1>
 
             <p className="text-xl text-slate-600 max-w-md mb-8 leading-relaxed">
