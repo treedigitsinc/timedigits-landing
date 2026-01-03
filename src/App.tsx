@@ -31,6 +31,7 @@ import { VirtualAssistantTimeTracker } from './pages/VirtualAssistantTimeTracker
 import { ProjectManagerTimeTracker } from './pages/ProjectManagerTimeTracker'
 import { TherapistTimeTracker } from './pages/TherapistTimeTracker'
 import { DataProcessingAgreement } from './pages/DataProcessingAgreement'
+import { Pricing } from './pages/Pricing'
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
           <Route path="/project-manager-time-tracker" element={<ProjectManagerTimeTracker />} />
           <Route path="/therapist-time-tracker" element={<TherapistTimeTracker />} />
           <Route path="/dpa" element={<DataProcessingAgreement />} />
+          <Route path="/pricing" element={<Pricing />} />
         </Routes>
         <CookieConsent />
       </div>

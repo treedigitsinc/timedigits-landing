@@ -47,8 +47,8 @@ const features = [
   },
   {
     id: "api",
-    title: "API & integrations",
-    description: "Connect with Jira, Linear, Asana, or build your own with our REST API.",
+    title: "API, MCP & integrations",
+    description: "Connect AI agents like Claude or ChatGPT. Integrate with Jira, Linear, Asana, or build your own.",
     icon: Lightning,
     teamOnly: true,
   },
@@ -142,7 +142,7 @@ function ExportDemo() {
         <div><span className="text-teal-600">2025-12-27</span>,Marketing,<span className="text-amber-600">2.0</span></div>
         <div><span className="text-teal-600">2025-12-26</span>,API Docs,<span className="text-amber-600">6.0</span></div>
       </div>
-      <button className="w-full py-2 rounded-lg bg-slate-900 text-white text-xs font-medium flex items-center justify-center gap-1.5">
+      <button className="w-full py-2 rounded-lg bg-slate-200 text-slate-600 text-xs font-medium flex items-center justify-center gap-1.5">
         <Export size={14} weight="bold" />
         Download CSV
       </button>
@@ -207,16 +207,15 @@ function TeamDemo() {
 function APIDemo() {
   return (
     <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
-      <div className="font-mono text-[10px] bg-slate-900 rounded-lg p-3 text-slate-300">
-        <div className="text-slate-500">// Create project</div>
-        <div><span className="text-purple-400">POST</span> <span className="text-teal-400">/api/projects</span></div>
-        <div className="mt-1">{`{`}</div>
-        <div>{"  "}<span className="text-blue-400">"name"</span>: <span className="text-amber-400">"New Feature"</span></div>
-        <div>{`}`}</div>
+      <div className="font-mono text-[10px] bg-slate-700 rounded-lg p-3 text-slate-300">
+        <div className="text-slate-400">// AI agent prompt</div>
+        <div><span className="text-purple-300">Claude:</span> <span className="text-slate-300">"Log 2 hours to</span></div>
+        <div><span className="text-amber-300">Marketing project</span><span className="text-slate-300">"</span></div>
+        <div className="mt-1.5 text-green-400">✓ Time entry created</div>
       </div>
       <div className="flex items-center gap-1.5 text-[10px] text-slate-500 mt-2">
         <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-        Connected to Linear, Jira
+        MCP + Linear, Jira, Asana
       </div>
     </div>
   );
