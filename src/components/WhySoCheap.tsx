@@ -1,10 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { Quotes } from "@phosphor-icons/react";
+import { Quotes, ArrowRight } from "@phosphor-icons/react";
 
 export function WhySoCheap() {
   return (
-    <section className="py-24 bg-slate-900">
+    <section className="min-h-screen bg-slate-900 flex flex-col justify-center py-24">
       <div className="container max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,6 +80,41 @@ export function WhySoCheap() {
           >
             Time tracking shouldn't cost more than the coffee you drink while using it.
           </motion.p>
+        </motion.div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="container mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Ready to track time
+            <br />
+            <span className="text-teal-400">the simple way?</span>
+          </h2>
+
+          <p className="text-slate-400 text-lg mb-10">
+            Join thousands who ditched bloated tools for timedigits.
+          </p>
+
+          <a
+            href="https://app.timedigits.ca/login"
+            className="group inline-flex items-center gap-3 bg-teal-500 text-white px-10 py-5 rounded-full text-xl font-semibold hover:bg-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/25 hover:shadow-xl hover:shadow-teal-400/30"
+          >
+            Start Free Now
+            <ArrowRight size={24} weight="bold" className="group-hover:translate-x-1 transition-transform" />
+          </a>
+
+          <div className="mt-8 flex items-center justify-center gap-6 text-slate-500 text-sm">
+            <span>No credit card</span>
+            <span className="w-1 h-1 rounded-full bg-slate-600" />
+            <span>Free forever for individuals</span>
+          </div>
         </motion.div>
       </div>
     </section>

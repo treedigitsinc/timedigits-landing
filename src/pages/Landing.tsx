@@ -3,7 +3,6 @@ import { Hero } from '../components/Hero'
 import { ComparisonMarquee } from '../components/ComparisonMarquee'
 import { AnimatedFeatures } from '../components/AnimatedFeatures'
 import { WhySoCheap } from '../components/WhySoCheap'
-import { CTA } from '../components/CTA'
 import { Footer } from '../components/Footer'
 
 export function Landing() {
@@ -15,7 +14,6 @@ export function Landing() {
         <ComparisonMarquee />
         <AnimatedFeatures />
         <WhySoCheap />
-        <CTA />
       </main>
       <Footer />
     </>
