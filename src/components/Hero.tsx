@@ -61,8 +61,7 @@ export function Hero() {
             </h1>
 
             <p className="text-xl text-slate-600 max-w-md mb-8 leading-relaxed">
-              Simple time tracking that stays out of your way.
-              Free forever for individuals.
+              Simple time tracking with invoicing. Free forever, $5/mo for teams.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
@@ -122,7 +121,7 @@ export function Hero() {
           >
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Simple pricing</h2>
-              <p className="text-slate-500">No hidden fees. No enterprise tiers.</p>
+              <p className="text-slate-500">No hidden fees. Pay for enterprise-like features.</p>
             </div>
 
             <div className="grid gap-4">
