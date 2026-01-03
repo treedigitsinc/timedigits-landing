@@ -1,96 +1,182 @@
 "use client";
-import { ArrowRight } from "@phosphor-icons/react";
+import { useState, useEffect } from "react";
+import { ArrowRight, Play, Pause, Check } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 
 export function Hero() {
+  const [isRunning, setIsRunning] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setSeconds((s) => s + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
+  const formatTime = (totalSeconds: number) => {
+    const hrs = Math.floor(totalSeconds / 3600);
+    const mins = Math.floor((totalSeconds % 3600) / 60);
+    const secs = totalSeconds % 60;
+    return `${hrs.toString().padStart(2, "0")}:${mins
+      .toString()
+      .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  const plans = [
+    {
+      name: "Solo",
+      price: "Free",
+      period: "forever",
+      features: ["Unlimited tracking", "Unlimited projects", "Reports & export"],
+      highlight: false,
+    },
+    {
+      name: "Team",
+      price: "$5",
+      period: "/month",
+      features: ["5 team members", "+$1/extra member", "Team reports"],
+      highlight: true,
+    },
+  ];
+
   return (
-    <section className="relative min-h-[70vh] flex flex-col items-center justify-center pt-20 pb-8 overflow-hidden bg-stone-50">
-      <div className="container relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Main headline - Ramp style bold */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl sm:text-6xl md:text-7xl font-bold text-stone-900 mb-6 leading-[1.1] tracking-tight"
-          >
-            Track time.
-            <br />
-            <span className="text-stone-400">Bill clients.</span>
-          </motion.h1>
-
-          {/* Value prop - single line */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-stone-500 max-w-md mx-auto mb-8"
-          >
-            Simple time tracking. Free forever for individuals.
-            Teams from <span className="text-stone-700 font-semibold">$1/user</span>.
-          </motion.p>
-
-          {/* Single CTA - Ramp style */}
+    <section className="relative min-h-[85vh] flex items-center pt-20 pb-12 bg-white">
+      <div className="container">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Column - Motto and Animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col items-center gap-4"
+            transition={{ duration: 0.6 }}
+            className="text-left"
           >
-            <a
-              href="https://app.timedigits.ca/login"
-              className="group inline-flex items-center gap-3 bg-stone-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-stone-800 transition-all duration-300"
-            >
-              Start Free
-              <ArrowRight size={20} weight="bold" className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-[1.05] tracking-tight">
+              Track time.
+              <br />
+              <span className="text-teal-500">Bill time.</span>
+            </h1>
 
-            <span className="text-stone-400 text-sm">
-              No credit card required
-            </span>
+            <p className="text-xl text-slate-600 max-w-md mb-8 leading-relaxed">
+              Simple time tracking that stays out of your way.
+              Free forever for individuals.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
+              <a
+                href="https://app.timedigits.ca/login"
+                className="group inline-flex items-center gap-3 bg-teal-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-600 transition-all duration-300 shadow-lg shadow-teal-500/25"
+              >
+                Start Free
+                <ArrowRight size={20} weight="bold" className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <span className="text-slate-500 text-sm self-center">
+                No credit card required
+              </span>
+            </div>
+
+            {/* Interactive Timer Demo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-slate-50 rounded-2xl p-6 border border-slate-200 max-w-sm"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className={`w-2.5 h-2.5 rounded-full ${isRunning ? 'bg-teal-500 animate-pulse' : 'bg-slate-300'}`} />
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                    {isRunning ? 'Tracking' : 'Ready'}
+                  </span>
+                </div>
+                <span className="text-xs text-slate-400">Try it!</span>
+              </div>
+
+              <div className="text-center py-4">
+                <div className="font-mono text-4xl font-medium tracking-tight text-slate-900 tabular-nums mb-4">
+                  {formatTime(seconds)}
+                </div>
+                <button
+                  onClick={() => setIsRunning(!isRunning)}
+                  className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    isRunning
+                      ? 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+                      : 'bg-teal-500 text-white hover:bg-teal-600 shadow-lg shadow-teal-500/30'
+                  }`}
+                >
+                  {isRunning ? <Pause size={24} weight="fill" /> : <Play size={24} weight="fill" />}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Pricing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:pl-8"
+          >
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">Simple pricing</h2>
+              <p className="text-slate-500">No hidden fees. No enterprise tiers.</p>
+            </div>
+
+            <div className="grid gap-4">
+              {plans.map((plan) => (
+                <div
+                  key={plan.name}
+                  className={`relative p-6 rounded-2xl transition-all duration-300 ${
+                    plan.highlight
+                      ? 'bg-teal-50 border-2 border-teal-200'
+                      : 'bg-slate-50 border border-slate-200'
+                  }`}
+                >
+                  {plan.highlight && (
+                    <div className="absolute -top-3 left-6 px-3 py-1 bg-teal-500 text-white text-xs font-bold rounded-full">
+                      POPULAR
+                    </div>
+                  )}
+
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900">{plan.name}</h3>
+                      <div className="flex items-baseline gap-1 mt-1">
+                        <span className="text-3xl font-bold text-slate-900">{plan.price}</span>
+                        <span className="text-slate-500 text-sm">{plan.period}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-2">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-600">
+                        <Check size={16} className="text-teal-500 flex-shrink-0" weight="bold" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 text-center">
+              <a
+                href="https://app.timedigits.ca/login"
+                className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-slate-800 transition-colors w-full justify-center"
+              >
+                Get Started
+                <ArrowRight size={18} weight="bold" />
+              </a>
+              <p className="text-slate-400 text-sm mt-3">
+                90% cheaper than Toggl & Harvest
+              </p>
+            </div>
           </motion.div>
         </div>
-
-        {/* Compact app preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-12 max-w-lg mx-auto"
-        >
-          <div className="bg-white rounded-2xl border border-stone-200 shadow-xl p-6">
-            {/* Mini timer demo */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-sage-500 animate-pulse" />
-                <span className="text-xs font-medium text-stone-400 uppercase tracking-wider">Tracking</span>
-              </div>
-              <span className="text-xs text-stone-400">Project Alpha</span>
-            </div>
-
-            <div className="text-center py-4">
-              <div className="font-mono text-4xl md:text-5xl font-light tracking-tight text-stone-900 tabular-nums">
-                02:34:17
-              </div>
-            </div>
-
-            {/* Quick stats */}
-            <div className="grid grid-cols-3 gap-3 pt-4 border-t border-stone-100">
-              <div className="text-center">
-                <div className="text-xl font-semibold text-stone-900">6.4h</div>
-                <div className="text-xs text-stone-400">Today</div>
-              </div>
-              <div className="text-center border-x border-stone-100">
-                <div className="text-xl font-semibold text-stone-900">32h</div>
-                <div className="text-xs text-stone-400">Week</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl font-semibold text-sage-600">$3,200</div>
-                <div className="text-xs text-stone-400">Billable</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

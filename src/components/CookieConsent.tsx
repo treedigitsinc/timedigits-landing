@@ -65,14 +65,14 @@ export function CookieConsent() {
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:bottom-6 md:max-w-sm z-50"
         >
-          <div className="bg-white border border-stone-200 rounded-xl p-4 shadow-xl">
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xl">
             <div className="flex items-start justify-between gap-3">
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-stone-600 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   We use cookies to improve your experience.{' '}
                   <Link
                     to="/cookies"
-                    className="text-sage-600 hover:text-sage-700 underline underline-offset-2 font-medium"
+                    className="text-teal-600 hover:text-teal-700 underline underline-offset-2 font-medium"
                   >
                     Learn more
                   </Link>
@@ -80,7 +80,7 @@ export function CookieConsent() {
               </div>
               <button
                 onClick={handleDismiss}
-                className="text-stone-400 hover:text-stone-600 transition-colors p-1 -mr-1 -mt-1"
+                className="text-slate-400 hover:text-slate-600 transition-colors p-1 -mr-1 -mt-1"
                 aria-label="Dismiss"
               >
                 <X size={16} />
@@ -89,13 +89,13 @@ export function CookieConsent() {
             <div className="flex items-center gap-2 mt-3">
               <button
                 onClick={handleAccept}
-                className="flex-1 px-3 py-1.5 bg-sage-500 hover:bg-sage-600 text-white text-sm font-medium rounded-lg transition-colors"
+                className="flex-1 px-3 py-1.5 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-lg transition-colors"
               >
                 Accept
               </button>
               <button
                 onClick={handleDecline}
-                className="flex-1 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 text-sm font-medium rounded-lg transition-colors border border-stone-200"
+                className="flex-1 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-lg transition-colors border border-slate-200"
               >
                 Decline
               </button>

@@ -1,7 +1,6 @@
-import { ArrowLeft, ArrowRight, Check, X, Trophy, Wallet, Clock, Sparkle, ShieldCheck, Lightning } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
-import { Logo } from "../components/Logo";
-import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+import { ArrowRight, Check, X, Trophy, Wallet, Clock, Sparkle, ShieldCheck, Lightning } from "@phosphor-icons/react";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 import { useSEO } from "../hooks/useSEO";
 import { seoData } from "../data/seoData";
 
@@ -53,91 +52,80 @@ export function ClockifyAlternative() {
   useSEO(seoData.clockifyAlternative);
 
   return (
-    <div className="min-h-screen bg-zinc-950">
-      {/* Header */}
-      <header className="py-6 border-b border-zinc-900">
-        <div className="container">
-          <Link to="/" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
-            <ArrowLeft size={20} />
-            <Logo size={24} variant="light" />
-            <span className="font-bold text-white">timedigits</span>
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-white">
+      <Header />
 
-      <main className="py-16">
+      <main className="pt-28 pb-16">
         <div className="container">
           {/* Hero Section */}
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-medium mb-6">
               <Trophy size={14} weight="fill" />
               Clockify Alternative
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
               Clockify Alternative That's Simpler & Cheaper
             </h1>
-            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
               Love Clockify's free tier but hate the upgrade nags? timedigits offers the same core features
               with a cleaner interface and 82% cheaper team pricing.
             </p>
-            <a href="https://app.timedigits.ca/login">
-              <HoverBorderGradient
-                containerClassName="rounded-full mx-auto"
-                className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
-              >
-                <span>Try timedigits Free</span>
-                <ArrowRight size={18} weight="bold" />
-              </HoverBorderGradient>
+            <a
+              href="https://app.timedigits.ca/login"
+              className="inline-flex items-center gap-2 bg-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg shadow-teal-500/25"
+            >
+              <span>Try timedigits Free</span>
+              <ArrowRight size={18} weight="bold" />
             </a>
           </div>
 
           {/* Quick Answer Box */}
-          <div className="glass rounded-3xl p-8 md:p-12 mb-20 border border-teal-500/20 bg-gradient-to-br from-teal-500/5 to-transparent max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-4">
+          <div className="rounded-3xl p-8 md:p-12 mb-20 border-2 border-teal-200 bg-teal-50/50 max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Quick Answer: Is timedigits Better Than Clockify?
             </h2>
-            <p className="text-zinc-300 leading-relaxed mb-6">
-              <strong className="text-white">It depends on what you need.</strong> Both Clockify and timedigits
+            <p className="text-slate-600 leading-relaxed mb-6">
+              <strong className="text-slate-900">It depends on what you need.</strong> Both Clockify and timedigits
               have excellent free tiers for individuals. Here's when to choose timedigits:
             </p>
-            <ul className="space-y-3 text-zinc-300">
+            <ul className="space-y-3 text-slate-600">
               <li className="flex items-start gap-3">
-                <Check size={20} className="text-teal-400 mt-0.5 flex-shrink-0" weight="bold" />
-                <span><strong className="text-white">You want a cleaner UI</strong> — timedigits has no ads, upgrade prompts, or feature clutter</span>
+                <Check size={20} className="text-teal-500 mt-0.5 flex-shrink-0" weight="bold" />
+                <span><strong className="text-slate-900">You want a cleaner UI</strong> — timedigits has no ads, upgrade prompts, or feature clutter</span>
               </li>
               <li className="flex items-start gap-3">
-                <Check size={20} className="text-teal-400 mt-0.5 flex-shrink-0" weight="bold" />
-                <span><strong className="text-white">You need team features</strong> — $1/user vs Clockify's $5.49/user (82% savings)</span>
+                <Check size={20} className="text-teal-500 mt-0.5 flex-shrink-0" weight="bold" />
+                <span><strong className="text-slate-900">You need team features</strong> — $1/user vs Clockify's $5.49/user (82% savings)</span>
               </li>
               <li className="flex items-start gap-3">
-                <Check size={20} className="text-teal-400 mt-0.5 flex-shrink-0" weight="bold" />
-                <span><strong className="text-white">You dislike surveillance</strong> — no screenshot monitoring, ever</span>
+                <Check size={20} className="text-teal-500 mt-0.5 flex-shrink-0" weight="bold" />
+                <span><strong className="text-slate-900">You dislike surveillance</strong> — no screenshot monitoring, ever</span>
               </li>
               <li className="flex items-start gap-3">
-                <Check size={20} className="text-teal-400 mt-0.5 flex-shrink-0" weight="bold" />
-                <span><strong className="text-white">You value simplicity</strong> — fewer features, but the right ones</span>
+                <Check size={20} className="text-teal-500 mt-0.5 flex-shrink-0" weight="bold" />
+                <span><strong className="text-slate-900">You value simplicity</strong> — fewer features, but the right ones</span>
               </li>
             </ul>
-            <p className="text-zinc-400 mt-6 text-sm">
+            <p className="text-slate-500 mt-6 text-sm">
               Choose Clockify if you need specific integrations (Asana, Trello, etc.) that timedigits doesn't have yet.
             </p>
           </div>
 
           {/* Why Switch */}
           <section className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-4">
               Why People Switch from Clockify
             </h2>
-            <p className="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-slate-600 text-center max-w-2xl mx-auto mb-12">
               Common reasons users move to timedigits.
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {switchReasons.map((reason) => (
-                <div key={reason.title} className="glass rounded-2xl p-6 border border-zinc-800/50">
-                  <reason.icon size={28} className="text-teal-400 mb-4" />
-                  <h3 className="text-white font-semibold mb-2">{reason.title}</h3>
-                  <p className="text-zinc-400 text-sm">{reason.description}</p>
+                <div key={reason.title} className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-colors">
+                  <reason.icon size={28} className="text-teal-500 mb-4" />
+                  <h3 className="text-slate-900 font-semibold mb-2">{reason.title}</h3>
+                  <p className="text-slate-500 text-sm">{reason.description}</p>
                 </div>
               ))}
             </div>
@@ -145,35 +133,43 @@ export function ClockifyAlternative() {
 
           {/* Feature Comparison */}
           <section className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-4">
               Feature Comparison
             </h2>
-            <p className="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-slate-600 text-center max-w-2xl mx-auto mb-12">
               Side-by-side comparison of timedigits vs Clockify.
             </p>
 
             <div className="max-w-3xl mx-auto">
-              <div className="glass rounded-2xl overflow-hidden border border-zinc-800/50">
-                <div className="grid grid-cols-3 p-4 bg-zinc-900/80 border-b border-zinc-800/50">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Feature</div>
-                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-teal-400">timedigits</div>
-                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-zinc-400">Clockify</div>
+              <div className="bg-white rounded-2xl overflow-hidden border border-slate-200">
+                <div className="grid grid-cols-3 p-4 bg-slate-50 border-b border-slate-200">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">Feature</div>
+                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-teal-600">timedigits</div>
+                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Clockify</div>
                 </div>
                 {featureComparison.map((row, i) => (
-                  <div key={row.feature} className={`grid grid-cols-3 p-4 ${i !== featureComparison.length - 1 ? "border-b border-zinc-800/30" : ""}`}>
-                    <div className="text-zinc-300 text-sm">{row.feature}</div>
+                  <div key={row.feature} className={`grid grid-cols-3 p-4 hover:bg-slate-50 transition-colors ${i !== featureComparison.length - 1 ? "border-b border-slate-100" : ""}`}>
+                    <div className="text-slate-700 text-sm">{row.feature}</div>
                     <div className="flex justify-center">
                       {row.timedigits ? (
-                        <Check size={20} className="text-teal-400" weight="bold" />
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-teal-100">
+                          <Check size={16} className="text-teal-600" weight="bold" />
+                        </span>
                       ) : (
-                        <X size={20} className="text-zinc-600" />
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100">
+                          <X size={16} className="text-slate-400" />
+                        </span>
                       )}
                     </div>
                     <div className="flex justify-center">
                       {row.clockify ? (
-                        <Check size={20} className="text-zinc-400" weight="bold" />
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100">
+                          <Check size={16} className="text-slate-500" weight="bold" />
+                        </span>
                       ) : (
-                        <X size={20} className="text-zinc-600" />
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100">
+                          <X size={16} className="text-slate-400" />
+                        </span>
                       )}
                     </div>
                   </div>
@@ -184,27 +180,27 @@ export function ClockifyAlternative() {
 
           {/* Pricing Comparison */}
           <section className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-4">
               Pricing: timedigits vs Clockify Pro
             </h2>
-            <p className="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-slate-600 text-center max-w-2xl mx-auto mb-12">
               Compare team pricing at different sizes.
             </p>
 
             <div className="max-w-4xl mx-auto">
-              <div className="glass rounded-2xl overflow-hidden border border-zinc-800/50">
-                <div className="grid grid-cols-4 p-4 bg-zinc-900/80 border-b border-zinc-800/50">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Team Size</div>
-                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-teal-400">timedigits</div>
-                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-zinc-400">Clockify Pro</div>
-                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-green-400">Yearly Savings</div>
+              <div className="bg-white rounded-2xl overflow-hidden border border-slate-200">
+                <div className="grid grid-cols-4 p-4 bg-slate-50 border-b border-slate-200">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">Team Size</div>
+                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-teal-600">timedigits</div>
+                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500">Clockify Pro</div>
+                  <div className="text-center text-xs font-semibold uppercase tracking-wider text-green-600">Yearly Savings</div>
                 </div>
                 {pricingComparison.map((row, i) => (
-                  <div key={row.users} className={`grid grid-cols-4 p-4 ${i !== pricingComparison.length - 1 ? "border-b border-zinc-800/30" : ""}`}>
-                    <div className="text-zinc-300 text-sm font-medium">{row.users}</div>
-                    <div className="text-center text-teal-400 text-sm font-bold">{row.timedigits}</div>
-                    <div className="text-center text-zinc-400 text-sm">{row.clockify}</div>
-                    <div className="text-center text-green-400 text-sm font-medium">{row.savings}</div>
+                  <div key={row.users} className={`grid grid-cols-4 p-4 hover:bg-slate-50 transition-colors ${i !== pricingComparison.length - 1 ? "border-b border-slate-100" : ""}`}>
+                    <div className="text-slate-700 text-sm font-medium">{row.users}</div>
+                    <div className="text-center text-teal-600 text-sm font-bold">{row.timedigits}</div>
+                    <div className="text-center text-slate-500 text-sm">{row.clockify}</div>
+                    <div className="text-center text-green-600 text-sm font-medium">{row.savings}</div>
                   </div>
                 ))}
               </div>
@@ -213,46 +209,46 @@ export function ClockifyAlternative() {
 
           {/* FAQ */}
           <section className="mb-20 max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-12">
               Clockify vs timedigits FAQ
             </h2>
 
             <div className="space-y-6">
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-white font-semibold mb-2">Is timedigits a good Clockify alternative?</h3>
-                <p className="text-zinc-400">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                <h3 className="text-slate-900 font-semibold mb-2">Is timedigits a good Clockify alternative?</h3>
+                <p className="text-slate-500">
                   Yes, if you want a simpler, cleaner experience and cheaper team pricing. timedigits has the core
                   features (timer, projects, reports, export) without Clockify's complexity and upselling.
                 </p>
               </div>
 
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-white font-semibold mb-2">How much cheaper is timedigits than Clockify?</h3>
-                <p className="text-zinc-400">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                <h3 className="text-slate-900 font-semibold mb-2">How much cheaper is timedigits than Clockify?</h3>
+                <p className="text-slate-500">
                   For individuals: both are free. For teams: timedigits costs $1/user (after first 5) vs Clockify Pro
                   at $5.49/user. That's 82% cheaper. A 10-person team saves $540/year.
                 </p>
               </div>
 
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-white font-semibold mb-2">What does Clockify have that timedigits doesn't?</h3>
-                <p className="text-zinc-400">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                <h3 className="text-slate-900 font-semibold mb-2">What does Clockify have that timedigits doesn't?</h3>
+                <p className="text-slate-500">
                   Clockify has more integrations (Asana, Trello, Jira, etc.), a built-in Pomodoro timer, and scheduling
                   features. If you need these, Clockify might be better for you. timedigits focuses on core time tracking.
                 </p>
               </div>
 
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-white font-semibold mb-2">Can I import my Clockify data?</h3>
-                <p className="text-zinc-400">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                <h3 className="text-slate-900 font-semibold mb-2">Can I import my Clockify data?</h3>
+                <p className="text-slate-500">
                   We're building import tools for Clockify data. For now, export from Clockify to CSV
                   and contact us for help with migration.
                 </p>
               </div>
 
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-white font-semibold mb-2">Does timedigits have screenshot monitoring like Clockify?</h3>
-                <p className="text-zinc-400">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200">
+                <h3 className="text-slate-900 font-semibold mb-2">Does timedigits have screenshot monitoring like Clockify?</h3>
+                <p className="text-slate-500">
                   No. timedigits does not and will never have surveillance features. We track time, not employee
                   activity. No screenshots, no keystroke logging, no GPS tracking.
                 </p>
@@ -262,40 +258,27 @@ export function ClockifyAlternative() {
 
           {/* Final CTA */}
           <section className="text-center max-w-2xl mx-auto">
-            <div className="glass rounded-3xl p-8 md:p-12 border border-teal-500/20">
-              <Clock size={48} className="text-teal-400 mx-auto mb-6" />
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <div className="rounded-3xl p-8 md:p-12 border-2 border-teal-200 bg-teal-50">
+              <Clock size={48} className="text-teal-500 mx-auto mb-6" />
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Ready to Switch from Clockify?
               </h2>
-              <p className="text-zinc-400 mb-8">
+              <p className="text-slate-600 mb-8">
                 Free forever for individuals. 82% cheaper for teams. No upgrade nags.
               </p>
-              <a href="https://app.timedigits.ca/login">
-                <HoverBorderGradient
-                  containerClassName="rounded-full mx-auto"
-                  className="bg-zinc-950 text-white flex items-center gap-2 px-8 py-3"
-                >
-                  <span>Try timedigits Free</span>
-                  <ArrowRight size={18} weight="bold" />
-                </HoverBorderGradient>
+              <a
+                href="https://app.timedigits.ca/login"
+                className="inline-flex items-center gap-2 bg-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-teal-600 transition-colors shadow-lg shadow-teal-500/25"
+              >
+                <span>Try timedigits Free</span>
+                <ArrowRight size={18} weight="bold" />
               </a>
             </div>
           </section>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-zinc-900 mt-20">
-        <div className="container text-center text-zinc-600 text-sm">
-          <p>
-            © 2025 timedigits. A{" "}
-            <a href="https://treedigits.ca" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400">
-              Treedigits Inc.
-            </a>{" "}
-            product.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

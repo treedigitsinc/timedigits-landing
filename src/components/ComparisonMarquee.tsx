@@ -17,7 +17,7 @@ export function ComparisonMarquee() {
   const items = [...comparisons, ...comparisons];
 
   return (
-    <section className="py-8 bg-stone-100 border-y border-stone-200 overflow-hidden">
+    <section className="py-6 bg-slate-50 border-y border-slate-200 overflow-hidden">
       <div className="relative">
         <motion.div
           className="flex gap-12 whitespace-nowrap"
@@ -35,10 +35,10 @@ export function ComparisonMarquee() {
               key={index}
               className="flex items-center gap-3 shrink-0"
             >
-              <span className="text-stone-400 text-sm font-medium">
+              <span className="text-slate-400 text-sm font-medium">
                 {item.competitor}
               </span>
-              <span className="px-3 py-1 bg-sage-500 text-white text-sm font-semibold rounded-full">
+              <span className="px-3 py-1 bg-teal-500 text-white text-sm font-semibold rounded-full">
                 {item.advantage}
               </span>
             </div>

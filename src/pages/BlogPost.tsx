@@ -35,7 +35,7 @@ export function BlogPost() {
     <>
       <Header />
 
-      <main id="main-content" className="min-h-screen bg-zinc-950 pt-24">
+      <main id="main-content" className="min-h-screen bg-white pt-28">
         {/* Article Header */}
         <article className="py-16">
           <div className="container max-w-3xl">
@@ -47,7 +47,7 @@ export function BlogPost() {
             >
               <Link
                 to="/blog"
-                className="text-zinc-400 hover:text-teal-400 flex items-center gap-2 text-sm transition-colors"
+                className="text-slate-500 hover:text-teal-500 flex items-center gap-2 text-sm transition-colors"
               >
                 <ArrowLeft size={16} />
                 Back to Blog
@@ -62,15 +62,15 @@ export function BlogPost() {
             >
               <Link
                 to={`/blog?category=${post.category}`}
-                className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 hover:bg-teal-500/20 transition-colors"
+                className="px-3 py-1 rounded-full bg-teal-500/10 text-teal-600 hover:bg-teal-500/20 transition-colors"
               >
                 {categoryLabels[post.category]}
               </Link>
-              <span className="text-zinc-500 flex items-center gap-1">
+              <span className="text-slate-400 flex items-center gap-1">
                 <Clock size={14} />
                 {post.readingTime} min read
               </span>
-              <span className="text-zinc-500 flex items-center gap-1">
+              <span className="text-slate-400 flex items-center gap-1">
                 <CalendarBlank size={14} />
                 {new Date(post.publishedAt).toLocaleDateString('en-US', {
                   month: 'long',
@@ -78,7 +78,7 @@ export function BlogPost() {
                   year: 'numeric'
                 })}
               </span>
-              <span className="text-zinc-500 flex items-center gap-1">
+              <span className="text-slate-400 flex items-center gap-1">
                 <User size={14} />
                 {post.author}
               </span>
@@ -89,7 +89,7 @@ export function BlogPost() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight"
             >
               {post.title}
             </motion.h1>
@@ -99,7 +99,7 @@ export function BlogPost() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-zinc-400 mb-8 leading-relaxed"
+              className="text-xl text-slate-500 mb-8 leading-relaxed"
             >
               {post.excerpt}
             </motion.p>
@@ -109,12 +109,12 @@ export function BlogPost() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-wrap gap-2 mb-12 pb-12 border-b border-zinc-800"
+              className="flex flex-wrap gap-2 mb-12 pb-12 border-b border-slate-200"
             >
               {post.tags.map(tag => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full bg-zinc-900 text-zinc-400 text-sm flex items-center gap-1"
+                  className="px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-sm flex items-center gap-1"
                 >
                   <Tag size={12} />
                   {tag}
@@ -127,18 +127,18 @@ export function BlogPost() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="prose prose-invert prose-lg max-w-none
-                prose-headings:font-bold prose-headings:text-white
+              className="prose prose-lg max-w-none
+                prose-headings:font-bold prose-headings:text-slate-900
                 prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
                 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-zinc-300 prose-p:leading-relaxed prose-p:mb-6
-                prose-strong:text-white prose-strong:font-semibold
-                prose-a:text-teal-400 prose-a:no-underline hover:prose-a:underline
-                prose-code:text-teal-300 prose-code:bg-zinc-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-                prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800
-                prose-ul:text-zinc-300 prose-ol:text-zinc-300
+                prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-6
+                prose-strong:text-slate-900 prose-strong:font-semibold
+                prose-a:text-teal-500 prose-a:no-underline hover:prose-a:underline
+                prose-code:text-teal-600 prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                prose-pre:bg-slate-100 prose-pre:border prose-pre:border-slate-200
+                prose-ul:text-slate-600 prose-ol:text-slate-600
                 prose-li:mb-2
-                prose-blockquote:border-l-teal-500 prose-blockquote:text-zinc-400 prose-blockquote:italic"
+                prose-blockquote:border-l-teal-500 prose-blockquote:text-slate-500 prose-blockquote:italic"
               dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
             />
 
@@ -147,17 +147,17 @@ export function BlogPost() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-teal-500/10 to-zinc-900 border border-teal-500/20 text-center"
+              className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-teal-500/10 to-slate-50 border border-teal-500/20 text-center"
             >
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
                 Ready to track time smarter?
               </h3>
-              <p className="text-zinc-400 mb-6">
+              <p className="text-slate-500 mb-6">
                 Join thousands of freelancers and teams using timedigits. Free forever for individuals.
               </p>
               <a
                 href="https://app.timedigits.ca/login"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-lg transition-colors"
               >
                 Start Tracking Free <ArrowRight size={18} />
               </a>
@@ -167,9 +167,9 @@ export function BlogPost() {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="py-16 border-t border-zinc-800">
+          <section className="py-16 border-t border-slate-200">
             <div className="container max-w-6xl">
-              <h2 className="text-2xl font-bold text-white mb-8">Related Articles</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-8">Related Articles</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost, index) => (
                   <motion.article
@@ -177,10 +177,10 @@ export function BlogPost() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="glass rounded-xl p-6 border border-zinc-800/50 hover:border-zinc-700 transition-colors group"
+                    className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors group"
                   >
-                    <div className="flex items-center gap-2 text-xs text-zinc-500 mb-3">
-                      <span className="px-2 py-1 rounded-full bg-zinc-800 text-zinc-400">
+                    <div className="flex items-center gap-2 text-xs text-slate-400 mb-3">
+                      <span className="px-2 py-1 rounded-full bg-slate-200 text-slate-500">
                         {categoryLabels[relatedPost.category]}
                       </span>
                       <span className="flex items-center gap-1">
@@ -188,10 +188,10 @@ export function BlogPost() {
                         {relatedPost.readingTime} min
                       </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-teal-500 transition-colors">
                       <Link to={`/blog/${relatedPost.slug}`}>{relatedPost.title}</Link>
                     </h3>
-                    <p className="text-zinc-400 text-sm line-clamp-2">
+                    <p className="text-slate-500 text-sm line-clamp-2">
                       {relatedPost.excerpt}
                     </p>
                   </motion.article>
@@ -233,17 +233,17 @@ function formatContent(content: string): string {
     let html = '<div class="overflow-x-auto my-6"><table class="w-full border-collapse">';
 
     if (isHeaderSeparator) {
-      html += '<thead class="bg-zinc-800"><tr>';
+      html += '<thead class="bg-slate-100"><tr>';
       headerCells.forEach(cell => {
-        html += `<th class="border border-zinc-700 px-4 py-3 text-left text-zinc-200 font-semibold">${processInlineMarkdown(cell)}</th>`;
+        html += `<th class="border border-slate-200 px-4 py-3 text-left text-slate-700 font-semibold">${processInlineMarkdown(cell)}</th>`;
       });
       html += '</tr></thead><tbody>';
 
       for (let i = 2; i < lines.length; i++) {
         const cells = parseRow(lines[i]);
-        html += '<tr class="hover:bg-zinc-800/50">';
+        html += '<tr class="hover:bg-slate-50">';
         cells.forEach(cell => {
-          html += `<td class="border border-zinc-700 px-4 py-3 text-zinc-300">${processInlineMarkdown(cell)}</td>`;
+          html += `<td class="border border-slate-200 px-4 py-3 text-slate-600">${processInlineMarkdown(cell)}</td>`;
         });
         html += '</tr>';
       }
@@ -252,9 +252,9 @@ function formatContent(content: string): string {
       html += '<tbody>';
       lines.forEach(line => {
         const cells = parseRow(line);
-        html += '<tr class="hover:bg-zinc-800/50">';
+        html += '<tr class="hover:bg-slate-50">';
         cells.forEach(cell => {
-          html += `<td class="border border-zinc-700 px-4 py-3 text-zinc-300">${processInlineMarkdown(cell)}</td>`;
+          html += `<td class="border border-slate-200 px-4 py-3 text-slate-600">${processInlineMarkdown(cell)}</td>`;
         });
         html += '</tr>';
       });
@@ -266,16 +266,16 @@ function formatContent(content: string): string {
   });
 
   // Process blockquotes
-  processed = processed.replace(/^> (.+)$/gm, '<blockquote class="border-l-4 border-teal-500 pl-4 py-2 my-4 text-zinc-400 italic">$1</blockquote>');
+  processed = processed.replace(/^> (.+)$/gm, '<blockquote class="border-l-4 border-teal-500 pl-4 py-2 my-4 text-slate-500 italic">$1</blockquote>');
 
   // Process horizontal rules
-  processed = processed.replace(/^---+$/gm, '<hr class="border-zinc-700 my-8" />');
+  processed = processed.replace(/^---+$/gm, '<hr class="border-slate-200 my-8" />');
 
   // Headers
   processed = processed
-    .replace(/^#### (.+)$/gm, '<h4 class="text-lg font-bold text-white mt-6 mb-3">$1</h4>')
-    .replace(/^### (.+)$/gm, '<h3 class="text-xl font-bold text-white mt-8 mb-4">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-white mt-12 mb-6">$1</h2>');
+    .replace(/^#### (.+)$/gm, '<h4 class="text-lg font-bold text-slate-900 mt-6 mb-3">$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3 class="text-xl font-bold text-slate-900 mt-8 mb-4">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-slate-900 mt-12 mb-6">$1</h2>');
 
   // Process inline markdown
   processed = processInlineMarkdown(processed);
@@ -302,7 +302,7 @@ function formatContent(content: string): string {
     if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
       const items = trimmed.split('\n').map(line => {
         const content = line.replace(/^[-*] /, '');
-        return `<li class="mb-2 text-zinc-300">${content}</li>`;
+        return `<li class="mb-2 text-slate-600">${content}</li>`;
       }).join('');
       return `<ul class="list-disc list-outside ml-6 my-4 space-y-1">${items}</ul>`;
     }
@@ -311,13 +311,13 @@ function formatContent(content: string): string {
     if (/^\d+\. /.test(trimmed)) {
       const items = trimmed.split('\n').map(line => {
         const content = line.replace(/^\d+\. /, '');
-        return `<li class="mb-2 text-zinc-300">${content}</li>`;
+        return `<li class="mb-2 text-slate-600">${content}</li>`;
       }).join('');
       return `<ol class="list-decimal list-outside ml-6 my-4 space-y-1">${items}</ol>`;
     }
 
     // Regular paragraph
-    return trimmed ? `<p class="text-zinc-300 leading-relaxed mb-6">${trimmed.replace(/\n/g, ' ')}</p>` : '';
+    return trimmed ? `<p class="text-slate-600 leading-relaxed mb-6">${trimmed.replace(/\n/g, ' ')}</p>` : '';
   }).join('\n');
 
   // Restore code blocks
@@ -335,13 +335,13 @@ function processInlineMarkdown(text: string): string {
     // Bold + Italic
     .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
     // Bold
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-slate-900">$1</strong>')
     // Italic
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     // Inline code
-    .replace(/`([^`]+)`/g, '<code class="bg-zinc-800 text-teal-300 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
+    .replace(/`([^`]+)`/g, '<code class="bg-slate-100 text-teal-600 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
     // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-teal-400 hover:text-teal-300 underline">$1</a>');
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-teal-500 hover:text-teal-600 underline">$1</a>');
 }
 
 // Escape HTML special characters
