@@ -21,14 +21,17 @@ export function Hero() {
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Typewriter effect for rotating words
+  // Typewriter effect for rotating words - clicky, mechanical feel
   useEffect(() => {
     const currentWord = rotatingWords[wordIndex];
-    const typeSpeed = isDeleting ? 50 : 80;
+    // Fast, clicky typing with slight randomness for mechanical feel
+    const baseSpeed = isDeleting ? 35 : 55;
+    const randomVariation = Math.random() * 25;
+    const typeSpeed = baseSpeed + randomVariation;
 
     if (!isDeleting && displayedText === currentWord) {
       // Word fully typed, wait then start deleting
-      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      const timeout = setTimeout(() => setIsDeleting(true), 1800);
       return () => clearTimeout(timeout);
     }
 
@@ -103,7 +106,10 @@ export function Hero() {
               <span className="text-teal-500">
                 <span className="inline-block min-w-[4ch]">
                   {displayedText}
-                  <span className="animate-pulse">|</span>
+                  <span
+                    className="inline-block w-[2px] h-[0.9em] bg-teal-400/60 ml-0.5 align-middle"
+                    style={{ animation: 'blink 1s step-end infinite' }}
+                  />
                 </span>
                 <span className="ml-1">time.</span>
               </span>
