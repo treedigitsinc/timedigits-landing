@@ -3,14 +3,15 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Play, Pause, Check } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Rotating words for the hero headline
+// Rotating words for the hero headline - action words tied to features
 const rotatingWords = [
-  "Bill",
-  "Save",
-  "Own",
-  "Love",
-  "Value",
-  "Reclaim",
+  "bill",
+  "export",
+  "budget",
+  "manage",
+  "invoice",
+  "review",
+  "approve",
 ];
 
 export function Hero() {
