@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ArrowRight, Play, Pause, Check } from "@phosphor-icons/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Rotating words for the hero headline - action words tied to features
 const rotatingWords = [
